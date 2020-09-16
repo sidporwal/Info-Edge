@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ToDo Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <header class="top">
+            <h1 class="h-text">ToDoMatic</h1>
+            <h2 class="h-text">What needs to be done?</h2>
+        </header>
+        <main>
+            <section>
+                <div class="main">
+                    <input type="text" id="todo" name="todo" class="main-txt">
+                    <button type="button" id="Add" class="main-btn">Add</button>
+                <div>
+                <div class="section1">
+                    <button type="button" id="All_tsk" class="btn">Show All Tasks</button>
+                    <button type="button" id="Active_tsk" class="btn">Show Active Tasks</button>
+                    <button type="button" id="Cmpltd_tsk" class="btn">Show Completed Tasks</button>
+                    <button type="button" id="time_sort" class="btn">Sort by Time</button>
+                    <button type="button" id="lex_sort" class="btn">Sort by lexicographiclally</button>
+                </div>
+            </section>
+            <section id="output" class="section2">
+            </section>
+        </main>
+        <script src="JS/script.js"></script>
+    </body>
+</html>
