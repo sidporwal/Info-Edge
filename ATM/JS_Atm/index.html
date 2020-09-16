@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>User Deposit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/styles/style.css" />
+    
+</head>
+
+<body>
+    <div>
+        <header>
+            <h1>User Deposit Machine</h1>
+        </header>
+        <main>
+            <form autocomplete="off">
+                <label for="note_2000">Number of 2000Rs. Note</label>
+                <input type="text" id="note_2000" name="note_2000"></br>
+                <label for="note_500">Number of 500Rs. Note</label>
+                <input type="text" id="note_500" name="note_500"></br>
+                <label for="note_100">Number of 100Rs. Note</label>
+                <input type="text" id="note_100" name="note_100"></br>
+                <button type="submit" id="btn1">Add Money</button>
+            </form>
+            <p id="amount">Enter notes for deposit.</p>
+        </main>
+    </div>
+    <div>
+        <header>
+            <h1>Withdrawal Section</h1>
+        </header>
+        <main>
+            <form autocomplete="off">
+                <input type="text" placeholder="Enter Amount" id="myInput">
+                <br>
+                <button type="submit" id="btn2">Withdraw Amount</button>
+            </form>
+            <p id="result">Enter amount for withdrawal.</p>
+        </main>
+    </div>
+    <script src="assets/javascript/events.js"></script>
+</body>
+
+</html>
