@@ -1,0 +1,137 @@
+body {
+    font-family: 'Nunito';
+}
+
+
+.active{
+    background-color: #d5f6d7;
+    color: #84a53d;
+    border-radius: 10px;
+    font-size: 10px;
+    padding: 2px
+}
+
+.new{
+    background-color: #fae7e4;
+    color: #e5597e;
+    border-radius: 10px;
+    font-size: 10px;
+    padding: 2px;
+}
+
+.shortlist{
+    background: #4d75ff;
+    border-radius: 50px;
+    color: #fefcff;
+    padding: 10px;
+    font-size: 17px;
+    font-family: sans-serif;
+    font-weight: 600;
+    height: 40px;
+    width: 120px;
+    outline: none;
+    cursor: pointer;
+    border: 0px;
+}
+
+.reject{
+    background: #ffffff;
+    border-radius: 50px;
+    color: #42242a;
+    padding: 10px;
+    font-size: 17px;
+    font-family: sans-serif;
+    font-weight: 600;
+    height: 40px;
+    width: 120px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.xp{
+    display: inline;
+    font-size: 14px;
+}
+
+.comment{
+    padding-top: 28px;
+    margin-top: 15px;
+    color: #7993c1;
+    margin-bottom: 25px;
+    background-color: #f2f4f9;
+    border: 0px;
+    width: 600px;
+    border-radius: 5px;
+}
+
+.main-class{
+    border: 1px solid black;
+    max-width: 991px;
+    margin-left: 380px;
+    margin-top: 300px;
+}
+
+.mg-l30{
+    margin-left: 30px;
+}
+
+.mg-l10{
+    margin-left: 10px;
+}
+
+.pd-25{
+    padding: 25px;
+}
+
+.font-14{
+    font-size: 14px;
+}
+
+.font-18{
+    font-size: 18px;
+}
+
+.tb{
+    color: #968db2;
+    font-size: 14px;
+    padding: 7px;
+}
+
+.tb1{
+    color: #968db2;
+    font-size: 14px;
+}
+
+.rec{
+    font-size: 14px;
+    float: right;
+    color: #968db2;
+    padding-right: 50px;
+}
+
+.user{
+    margin-bottom: 36px;
+    margin-right: 5px;
+}
+
+#shortlist:hover{
+    background: #627acc;
+}
+
+#reject:hover{
+    background: #ff0000;
+}
+
+.pd-25 .width{
+    width: 100%;
+}
+
+.button-class{
+    float:right; 
+    margin-right: 50px;
+}
+
+.pd-l100{
+    padding-left: 100px;
+}

@@ -1,0 +1,236 @@
+:root{
+    font-size: 16px;
+    --color_oxford_blue_approx: #303841;
+    --color_brick_red_approx: #be3144;
+    --color_east_bay_approx: #45567d;
+    --color_gallery_approx: #f0f0f0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background: var(--color_oxford_blue_approx);
+    margin: 0;
+}
+
+.top-bar{
+    background-color: var(--color_brick_red_approx);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem;
+}
+
+.top-icon{
+    float: right;
+    list-style-type: none;
+}
+
+.top-menu{
+    color: #4a782c;
+    font-size: 1.5rem;
+}
+
+.about{
+    font-size: 1.8rem;
+    color: var(--color_gallery_approx);
+    margin-right: 1.5rem;
+    text-decoration: none;
+}
+
+.top-main{
+    margin: 0;
+}
+
+.main{
+    background-color: var(--color_oxford_blue_approx);
+    text-align: center;
+    padding-top: 30%;
+    padding-bottom: 25%;
+}
+
+.main-txt1{
+    color: var(--color_gallery_approx);
+    font-size: 3.125rem;
+    margin: 0;
+}
+
+.main-txt2{
+    color: var(--color_brick_red_approx);
+    font-size: 2.5rem;
+    font-style: italic;
+    margin: 0;
+}
+
+.project{
+    background-color: var(--color_east_bay_approx);
+}
+
+.project-txt{
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--color_gallery_approx);
+    text-decoration: underline;
+    padding: 10%;
+    text-underline-position: under;
+    margin: 0;
+}
+
+.project-img{
+    overflow: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 15% 0 15%;
+}
+
+.project1{
+    float: left;
+    background-color: var(--color_oxford_blue_approx);
+    margin: 2%;
+    width: 29.33%;
+}
+
+.project1-img{
+    height: 21.875rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.project1-txt{
+    color: var(--color_gallery_approx);
+    background-color: var(--color_oxford_blue_approx);
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    height: 30px;
+}
+
+.project2{
+    float: left;
+    margin: 2%;
+    background-color: var(--color_oxford_blue_approx);
+    width: 29.33%;
+}
+
+.project2-img{
+    height: 21.875rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.project2-txt{
+    color: var(--color_gallery_approx);
+    background-color: var(--color_oxford_blue_approx);
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    height: 30px;
+}
+
+.project-button{
+    margin: 4% 40% 3% 40%;
+    height: 3.125rem;
+    width: 20%;
+    font-size: 1.375rem;
+    background-color: var(--color_oxford_blue_approx);
+    color: var(--color_gallery_approx);
+    border: none;
+    text-align: center;
+    padding: 0;
+}
+
+.footer{
+    background-color: var(--color_oxford_blue_approx);
+    text-align: center;
+}
+
+.footer-txt1{
+    color: var(--color_gallery_approx);
+    font-size: 3.125rem;
+    margin: 0;
+    padding-top: 8%;
+}
+
+.footer-txt2{
+    color: var(--color_gallery_approx);
+    font-style: italic;
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.footer-link{
+    list-style-type: none;
+    margin: 0;
+    padding: 2% 0 15% 0;
+}
+
+.footer-icon{
+    font-size: 1.5625rem;
+    display: inline;
+    margin-left: 2%;
+}
+
+.footer-font-clr{
+    color: var(--color_gallery_approx);
+    text-decoration: none;
+}
+
+.mark-head{
+    border-top: 0.25rem solid var(--color_brick_red_approx);
+}
+
+.mark-text{
+    color: var(--color_gallery_approx);
+    font-size: 1.1250rem;
+    text-align: center;
+    padding: 2rem;
+    margin: 0;
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1200px){
+    .project1{
+        width: 46%;
+    }
+    .project2{
+        width: 46%;
+    }
+    .project-button{
+        margin: 4% 30% 3% 30%;
+        width: 40%;
+    }
+    :root{
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .project1{
+        width: 96%;
+    }
+    .project2{
+        width: 96%
+    }
+    .project-button{
+        margin: 4% 10% 3% 10%;
+        width: 80%;
+    }
+    .footer-icon{
+        margin-top: 2%;
+        display: block;
+    }
+    .footer-link{
+        padding: 4%;
+    }
+    :root{
+        font-size: 10px;
+    }
+    .top-icon{
+        float: none;
+        text-align: center;
+    }
+    .about{
+        margin: 7%;
+    }
+}
