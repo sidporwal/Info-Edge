@@ -10,7 +10,7 @@ class App extends React.Component {
       count: 0,
       arr: []
     };
-    this.onClickUpdate=this.onClickUpdate.bind(this);
+    //this.onClickUpdate=this.onClickUpdate.bind(this);
   }
 
   setStateSynchronous(stateUpdate) {
@@ -19,7 +19,7 @@ class App extends React.Component {
     });
   }
 
-  async onClickUpdate(){
+  onClickUpdate = async () => {
     await this.setStateSynchronous(
       state => ({count: state.count+1})
     );
@@ -31,7 +31,7 @@ class App extends React.Component {
       count: state.count+1,
       arr: [...this.state.arr,state.count] 
     }));*/
-  }
+  };
   
 
   render(){
