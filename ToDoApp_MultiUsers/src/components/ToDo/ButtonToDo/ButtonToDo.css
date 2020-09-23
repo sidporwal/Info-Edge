@@ -1,0 +1,11 @@
+.buttontodo{
+    padding: 2%;
+}
+
+.todobutton{
+    margin: 1%;
+    width: 31%;
+    padding: 1%;
+    font-size: 1rem;
+    border: 0;
+}

@@ -1,0 +1,12 @@
+.logout{
+    margin-top: 2%;
+    text-align: end;
+    margin-right: 1%;
+}
+
+.logoutbutton{
+    padding: 1%;
+    font-size: 1rem;
+    background-color: #ecece6;
+    border: 0;
+}

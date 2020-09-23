@@ -1,0 +1,31 @@
+.login{
+    width: 70%;
+    background-color: #d08787;
+}
+
+.logintext{
+    width: 92%;
+    margin: 3%;
+    padding: 12px px;
+    padding: 2%;
+    font-size: 1rem;
+}
+
+.loginlabel{
+    font-size: 2rem;
+    margin-left: 3%;
+}
+
+.loginform{
+    margin-top: 5%;
+}
+
+.loginsubmit{
+    width: 20%;
+    padding: 1%;
+    margin-left: 40%;
+    font-size: 1rem;
+    background-color: #171313;
+    color: #f9f9f9;
+    border: 0;
+}
