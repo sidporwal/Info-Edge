@@ -1,11 +1,13 @@
 import React from 'react';
-import {TodoList} from './TodoList/TodoList'; 
+import TodoList from './TodoList'; 
 import './TodoShow.css';
 
-export const TodoShow = props => (
+const TodoShow = ({toDoList, handleCheckbox, handleDeleteTask}) => (
     <div className="todoshow">
-        {props.toDoList.map( todo => 
-            <TodoList todo={todo} handleCheckbox={props.handleCheckbox} handleDeleteTask={props.handleDeleteTask}/>
+        {toDoList.map( todo => 
+            <TodoList todo={todo} handleCheckbox={handleCheckbox} handleDeleteTask={handleDeleteTask}/>
         )}
     </div>
 );
+
+export default TodoShow;

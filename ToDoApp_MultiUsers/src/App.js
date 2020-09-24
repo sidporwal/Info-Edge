@@ -20,41 +20,54 @@ class App extends React.Component {
     };
   };
   
+  //Handle Username/Password/InputToDO
   handleChange = (event) => {
     const {value,name} = event.target;
     this.setState({[name]: value});
   }
-
-  handleSubmit = event =>{
-    event.preventDefault();
+  
+  //Form validation
+  validate =() => {
     let {userName, passWord} =this.state;
     if(userName==''){
       this.setState({userName: 'Please Enter a UserName'});
+      return false;
     }
     else if(passWord==''){
       this.setState({userName: 'Please Enter a Password'});
+      return false;
     }
     else if(userName!=passWord){
       this.setState({userName: 'UserName and PassWord should be same'});
+      return false;
     }
-    else{
+    return true;
+  }
+
+  //Submit Login Page
+  handleSubmit = event =>{
+    event.preventDefault();
+    if(this.validate()){
       let active=-1;
       let todolist=[];
       for(let i=0;i<this.state.users.length;i++){
         if(this.state.users[i].username===this.state.userName){
           active=this.state.users[i].id;
           todolist=this.state.userTodo[i].task;
+          break;
         }
       }
       if(active==-1){
         this.setState({userName: 'Please enter valid Username, shown on the right side of Page'});
       }
       else{
-        this.setState({activeUser: active, toDoList: todolist, visibleForm: 'USER_TODO',userName: '', passWord: ''});
+        this.setState({activeUser: active, toDoList: todolist, visibleForm: 'USER_TODO'});
       }
     }
   }
   
+
+  //Add Task to the User ToDo
   handleAddTodo = () => {
     if(this.state.inputToDO==''){
       this.setState({inputToDO: 'Please Enter a Task to Add'});
@@ -66,13 +79,15 @@ class App extends React.Component {
       this.setState({userTodo, toDoList: userTodo[this.state.activeUser-1].task,inputToDO: ''});
     }
   }
-  
+
+  //Show All ToDo Tasks
   handleAllTask = () => {
     let {userTodo, activeUser} = this.state;
     let todolist = userTodo[activeUser-1].task;
     this.setState({toDoList: todolist}); 
   }
 
+  //Show Active Task
   handleActiveTask = () => {
     let {toDoList, userTodo, activeUser} = this.state;
     toDoList=userTodo[activeUser-1].task;
@@ -80,6 +95,7 @@ class App extends React.Component {
     this.setState({toDoList: activetodolist}); 
   }
 
+  //Show Completed Task
   handleCompletedTask = () => {
     let {toDoList, userTodo, activeUser} = this.state;
     toDoList=userTodo[activeUser-1].task;
@@ -87,6 +103,7 @@ class App extends React.Component {
     this.setState({toDoList: cmpltdtodolist}); 
   } 
   
+  //Delete ToDo Task
   handleDeleteTask = (event) => {
     const {name} = event.target;
     let {userTodo, activeUser, toDoList} = this.state;
@@ -101,7 +118,8 @@ class App extends React.Component {
     toDoList=todolist;
     this.setState({userTodo, toDoList});
   }
-
+  
+  //After Change in Checkbox checked or Uncheked in ToDo List
   handleCheckbox = (event) => {
     let {name,checked} = event.target;
     let {userTodo, activeUser, toDoList} = this.state;
@@ -125,11 +143,13 @@ class App extends React.Component {
     toDoList=todolist;
     this.setState({userTodo, toDoList});
   }
-
+  
+  //Logout from current User ToDo
   handleLogOut = () => {
-    this.setState({visibleForm: 'LOG_IN'});
+    this.setState({visibleForm: 'LOG_IN',userName: '', passWord: ''});
   }
-
+   
+  //Handling click on User List
   handleUserClick = (event) => {
     let {id}=event.target;
     if(id!=''){
@@ -151,6 +171,8 @@ class App extends React.Component {
     })
   }
 
+
+  //Dynamically Display Content
   renderSwitch = () => {
     let {visibleForm}=this.state;
     switch(visibleForm){
@@ -161,8 +183,9 @@ class App extends React.Component {
         );
       case 'USER_TODO':
         return (
-          <ToDoComponent  inputToDO={this.state.inputToDO} handleInputTodo={this.handleChange} handleAddTodo={this.handleAddTodo} handleAllTask={this.handleAllTask} handleLogOut={this.handleLogOut}
-        handleActiveTask={this.handleActiveTask} handleCompletedTask={this.handleCompletedTask} handleCheckbox={this.handleCheckbox} handleDeleteTask={this.handleDeleteTask} toDoList={this.state.toDoList}/>
+          <ToDoComponent  inputToDO={this.state.inputToDO} handleInputTodo={this.handleChange} handleAddTodo={this.handleAddTodo} handleAllTask={this.handleAllTask} 
+          handleLogOut={this.handleLogOut} handleActiveTask={this.handleActiveTask} handleCompletedTask={this.handleCompletedTask} handleCheckbox={this.handleCheckbox} 
+          handleDeleteTask={this.handleDeleteTask} toDoList={this.state.toDoList} userName={this.state.userName}/>
         );
     }
   }

@@ -1,12 +1,17 @@
 .logout{
-    margin-top: 2%;
-    text-align: end;
-    margin-right: 1%;
+    background-color: #c2b8c7;
+    padding: 2%;
 }
 
 .logoutbutton{
-    padding: 1%;
+    padding: 0.75%;
     font-size: 1rem;
     background-color: #ecece6;
     border: 0;
+    float: right;
+    width: 15%;
+}
+
+.todohead{
+    font-size: 2rem;
 }
