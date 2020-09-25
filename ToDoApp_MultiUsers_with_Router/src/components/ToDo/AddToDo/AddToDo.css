@@ -1,0 +1,18 @@
+.addtodo{
+    margin: 5% 20%;
+}
+
+.addtodotext{
+    width: 100%;
+    padding: 2%;
+    font-size: 1rem;
+}
+
+.addtodobutton{
+    margin-top: 5%;
+    width: 20%;
+    padding: 1%;
+    margin-left: 40%;
+    font-size: 1rem;
+    border: 0;
+}

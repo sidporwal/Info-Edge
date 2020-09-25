@@ -1,0 +1,48 @@
+.signup{
+    width: 70%;
+    background-color: #355d4c;
+}
+
+.signuphead{
+    background-color: #dc5252;
+}
+
+.signupheadbutton{
+    padding: 0.5%;
+    font-size: 1rem;
+    margin: 0.5%;
+    width: 7%;
+}
+
+.signupmain{
+    margin-top: 5%;
+}
+
+.signupform{
+
+}
+
+.signuplabel{
+    font-size: 2rem;
+    margin-left: 3%;
+    color: #f1ebeb;
+}
+
+.signuptext{
+    width: 92%;
+    margin: 3%;
+    padding: 1%;
+    font-size: 1rem;
+}
+
+.signupsubmit{
+    width: 20%;
+    padding: 1%;
+    margin-left: 40%;
+    font-size: 1rem;
+    background-color: #171313;
+    color: #f9f9f9;
+    border: 0;
+}
+
+
