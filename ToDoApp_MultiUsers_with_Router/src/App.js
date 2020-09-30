@@ -1,17 +1,14 @@
 import React from 'react';
 import './App.css';
-import {LogIn} from './components';
-import {UserList} from './components';
-import {ToDoComponent} from './components';
-import {Bucket, ToDo} from './Modules/Module';
-import {Home} from './components/Home/Home';
-import {SignUp} from './components/SignUp/SIgnUp';
+import {LogIn, UserList, Home, SignUp, ToDoComponent} from './components';
+import {Bucket, ToDo, Details} from './Modules/Module';
 
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Switch, Route, withRouter} from 'react-router-dom';
+
 
 class App extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state ={
       users: [],
       userName: '',
@@ -28,6 +25,7 @@ class App extends React.Component {
     };
   };
   
+  
   //Handle Username/Password/InputToDO
   handleChange = (event) => {
     const {value,name} = event.target;
@@ -37,15 +35,15 @@ class App extends React.Component {
   //Form validation
   validate =() => {
     let {userName, passWord} =this.state;
-    if(userName==''){
+    if(userName===''){
       this.setState({userName: 'Please Enter a UserName'});
       return false;
     }
-    else if(passWord==''){
+    else if(passWord===''){
       this.setState({userName: 'Please Enter a Password'});
       return false;
     }
-    else if(userName!=passWord){
+    else if(userName!==passWord){
       this.setState({userName: 'UserName and PassWord should be same'});
       return false;
     }
@@ -65,19 +63,22 @@ class App extends React.Component {
           break;
         }
       }
-      if(active==-1){
+      if(active===-1){
         this.setState({userName: 'Please enter valid Username, shown on the right side of Page'});
       }
       else{
         this.setState({activeUser: active, toDoList: todolist, visibleForm: 'USER_TODO'});
       }
+      this.props.history.push(`/ToDo/${active}`);
+      //console.log(this.props);
     }
+    
   }
   
 
   //Add Task to the User ToDo
   handleAddTodo = () => {
-    if(this.state.inputToDO==''){
+    if(this.state.inputToDO===''){
       this.setState({inputToDO: 'Please Enter a Task to Add'});
     }
     else{
@@ -117,7 +118,7 @@ class App extends React.Component {
     let {userTodo, activeUser, toDoList} = this.state;
     let todolist=userTodo[activeUser-1].task;
     for(let i=0;i<todolist.length;i++){
-      if(todolist[i].time==name){
+      if(todolist[i].time===name){
         todolist.splice(i,1);
         break;
       }
@@ -133,7 +134,7 @@ class App extends React.Component {
     let {userTodo, activeUser, toDoList} = this.state;
     let todolist=userTodo[activeUser-1].task;
     for(let i=0;i<todolist.length;i++){
-      if(todolist[i].time==name){
+      if(todolist[i].time===name){
         if(checked){
           //Task Completed
           todolist[i].checked=true;
@@ -160,26 +161,65 @@ class App extends React.Component {
   //Handling click on User List
   handleUserClick = (event) => {
     let {id}=event.target;
-    if(id!=''){
+    if(id!==''){
       this.setState({userName: id, passWord: id});
     }
   }
+  
 
+  //Redirect to home
   handleHome = () => {
     this.setState({visibleForm: 'HOME'});
   }
 
+  //Redirect to Sign Up
   handleSignUp = () => {
     this.setState({visibleForm: 'SIGN_UP'});
   }
 
+  //Redirect to LogIn
   handleLogin = () => {
     this.setState({visibleForm: 'LOG_IN'});
   }
 
+
+  // Validate Form Data
+  validate1 = () => {
+    let {name, uName, eMail, phone} = this.state;
+    if(name===''){
+      this.setState({name: "Please Enter your name"});
+      return false;
+    }
+    else if(uName===''){
+      this.setState({uName: "Please Enter your UserName"});
+      return false;
+    }
+    else if(eMail===''){
+      this.setState({eMail: "Please Enter your Email"});
+      return false;
+    }
+    else if(phone===''){
+      this.setState({phone: "Please enter your Phone No."});
+      return false;
+    }
+    return true;
+
+  }
+
+  //Sign Up submit button
+
   handleSignUpSubmit = (event) => {
     event.preventDefault();
-
+    if(this.validate1()){
+      let {name, uName, eMail, phone, users, userTodo} = this.state;
+      let id=users.length+1;
+      let person=new Details(id, name, uName, eMail, phone);
+      users=users.concat(person);
+      let bkt = new Bucket(id);
+      userTodo=userTodo.concat(bkt);
+      this.setState({users, userTodo, visibleForm: 'LOG_IN', userName: uName, passWord: uName});
+      this.props.history.push("/LogIn");
+    }
   }
 
   componentDidMount(){
@@ -198,6 +238,8 @@ class App extends React.Component {
 
 
   //Dynamically Display Content
+  
+  /*
   renderSwitch = () => {
     let {visibleForm}=this.state;
     switch(visibleForm){
@@ -211,11 +253,13 @@ class App extends React.Component {
           <SignUp handleChange={this.handleChange} name={this.state.name} uName={this.state.uName} eMail={this.state.eMail} phone={this.state.phone}
           handleSignUpSubmit={this.handleSignUpSubmit} handleLogin={this.handleLogin} handleHome={this.handleHome}/>
         );
+
       case 'LOG_IN':
         return (
           <LogIn userName={this.state.userName} passWord={this.state.passWord} handleSubmit={this.handleSubmit} handleSignUp={this.handleSignUp} 
           handleChange={this.handleChange} handleHome={this.handleHome}/>
         );
+
       case 'USER_TODO':
         return (
           <ToDoComponent  inputToDO={this.state.inputToDO} handleInputTodo={this.handleChange} handleAddTodo={this.handleAddTodo} handleAllTask={this.handleAllTask} 
@@ -224,50 +268,36 @@ class App extends React.Component {
         );
     }
   }
+  */
+  
 
 
   render(){
-    //const RenderSwitch=this.renderSwitch();  {RenderSwitch} 
+    //const RenderSwitch=this.renderSwitch();  {RenderSwitch}
     return (
-      <Router>
         <div className="App">
         <Switch>
-            <Route exact path="/">
-              <Home handleSignUp={this.handleSignUp} handleLogin={this.handleLogin}/>
-            </Route>
-            <Route exact path="/SignUp">
-              <SignUp handleChange={this.handleChange} name={this.state.name} uName={this.state.uName} eMail={this.state.eMail} phone={this.state.phone}
-              handleSignUpSubmit={this.handleSignUpSubmit} handleLogin={this.handleLogin} handleHome={this.handleHome}/>
-            </Route>
-            <Route exact path="/LogIn">
-              <LogIn userName={this.state.userName} passWord={this.state.passWord} handleSubmit={this.handleSubmit} 
-                handleChange={this.handleChange}/>
-            </Route>
-            <Route exact path="/ToDo">
-              <ToDoComponent  inputToDO={this.state.inputToDO} handleInputTodo={this.handleChange} handleAddTodo={this.handleAddTodo} handleAllTask={this.handleAllTask} 
-                handleLogOut={this.handleLogOut} handleActiveTask={this.handleActiveTask} handleCompletedTask={this.handleCompletedTask} handleCheckbox={this.handleCheckbox} 
-                handleDeleteTask={this.handleDeleteTask} toDoList={this.state.toDoList} userName={this.state.userName}/>
-            </Route>
-        </Switch>
+              <Route exact path="/">
+                <Home handleSignUp={this.handleSignUp} handleLogin={this.handleLogin}/>
+              </Route>
+              <Route path="/SignUp">
+                <SignUp handleChange={this.handleChange} name={this.state.name} uName={this.state.uName} eMail={this.state.eMail} phone={this.state.phone}
+                handleSignUpSubmit={this.handleSignUpSubmit} handleLogin={this.handleLogin} handleHome={this.handleHome}/>
+              </Route>
+              <Route path="/LogIn">
+                <LogIn userName={this.state.userName} passWord={this.state.passWord} handleSubmit={this.handleSubmit} 
+                  handleChange={this.handleChange}/>
+              </Route>
+              <Route path="/ToDo/:id">
+                <ToDoComponent  inputToDO={this.state.inputToDO} handleInputTodo={this.handleChange} handleAddTodo={this.handleAddTodo} handleAllTask={this.handleAllTask} 
+                  handleLogOut={this.handleLogOut} handleActiveTask={this.handleActiveTask} handleCompletedTask={this.handleCompletedTask} handleCheckbox={this.handleCheckbox} 
+                  handleDeleteTask={this.handleDeleteTask} toDoList={this.state.toDoList} userName={this.state.userName}/>
+              </Route>
+          </Switch>
           <UserList users={this.state.users} handleUserClick={this.handleUserClick}/>
         </div>
-      </Router>
     );
   }
 }
 
-export default App;
-
-/*
-<Switch>
-            <Route path="/">
-              <LogIn userName={this.state.userName} passWord={this.state.passWord} handleSubmit={this.handleSubmit} 
-                handleChange={this.handleChange}/>
-            </Route>
-            <Route path="/ToDo">
-              <ToDoComponent  inputToDO={this.state.inputToDO} handleInputTodo={this.handleChange} handleAddTodo={this.handleAddTodo} handleAllTask={this.handleAllTask} 
-                handleLogOut={this.handleLogOut} handleActiveTask={this.handleActiveTask} handleCompletedTask={this.handleCompletedTask} handleCheckbox={this.handleCheckbox} 
-                handleDeleteTask={this.handleDeleteTask} toDoList={this.state.toDoList} userName={this.state.userName}/>
-            </Route>
-          </Switch>
-*/
+export default withRouter(App);

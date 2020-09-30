@@ -2,7 +2,8 @@ import React from 'react';
 import './Home.css';
 import {Link} from 'react-router-dom';
 
-export const Home = props => (
+export const Home = props => {
+    return (
     <div className="home">
         <header className="homehead">
             <Link to="/SignUp"><button type="button" onClick={props.handleSignUp} className="homeheadbutton">Sign Up</button></Link>
@@ -12,4 +13,5 @@ export const Home = props => (
             <h1 className="homemaintext">Enter to our first ToDo Application</h1>
         </main>
     </div>
-);
+    );
+};

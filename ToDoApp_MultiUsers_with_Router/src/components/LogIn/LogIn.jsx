@@ -12,12 +12,12 @@ const LogIn = ({handleSubmit, handleChange, userName, passWord, handleSignUp, ha
         <main>
             <form onSubmit={handleSubmit} className="loginform">
             <label className="loginlabel">User Name</label>
-            <input type="text" value={userName} onChange={handleChange} className="logintext" name="userName" />
+            <input type="text" value={userName} onChange={handleChange} className="logintext" name="userName" required/>
             
             <label className="loginlabel">Password </label>
-            <input type="password" value={passWord} onChange={handleChange} name="passWord" className="logintext" />
+            <input type="password" value={passWord} onChange={handleChange} name="passWord" className="logintext" required/>
             
-            <Link to="/ToDo"><input type="submit" value="submit" className="loginsubmit" /></Link>
+            <input type="submit" value="submit" className="loginsubmit" />
             </form>
         </main>
     </div>

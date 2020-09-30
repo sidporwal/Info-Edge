@@ -14,4 +14,14 @@ class ToDo{
     }
 }
 
-export {Bucket, ToDo};
+class Details{
+    constructor(id,name, uName, eMail, phone){
+        this.id=id;
+        this.name=name;
+        this.username=uName;
+        this.email=eMail;
+        this.phone=phone;
+    }
+}
+
+export {Bucket, ToDo, Details};

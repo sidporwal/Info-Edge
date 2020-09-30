@@ -5,7 +5,7 @@ import './TodoShow.css';
 const TodoShow = ({toDoList, handleCheckbox, handleDeleteTask}) => (
     <div className="todoshow">
         {toDoList.map( todo => 
-            <TodoList todo={todo} handleCheckbox={handleCheckbox} handleDeleteTask={handleDeleteTask}/>
+            <TodoList key={todo.time} todo={todo} handleCheckbox={handleCheckbox} handleDeleteTask={handleDeleteTask}/>
         )}
     </div>
 );

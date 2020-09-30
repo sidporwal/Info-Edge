@@ -7,6 +7,8 @@ import {ToDoComponent} from './ToDo';
 import {TodoList} from './ToDo';
 import {UserList} from './UserList'; 
 import {User} from './UserList';
+import {SignUpWithRouter as SignUp} from './SignUp';
+import {Home} from './Home';
 
 
-export {LogIn, AddToDo, ButtonToDo, LogOut, TodoShow, TodoList, ToDoComponent, UserList, User};
+export {LogIn, AddToDo, ButtonToDo, LogOut, TodoShow, TodoList, ToDoComponent, UserList, User, SignUp, Home};

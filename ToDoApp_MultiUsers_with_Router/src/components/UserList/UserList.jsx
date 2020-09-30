@@ -5,7 +5,7 @@ import './UserList.css';
 const UserList = ({users, handleUserClick}) => (
     <div className="userlist">
         {users.map(item => (
-          <User item={item} handleUserClick={handleUserClick} />
+          <User key={item.id} item={item} handleUserClick={handleUserClick} />
         ))}
     </div>
 );
