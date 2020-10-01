@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-color: #7900ff;
+}
+
+h1, h2{
+    margin: 0;
+}
+
+.top{
+    text-align: center;
+    background-color: #ff0053;
+    font-size: 1.5rem;
+}
+
+.h-text{
+    padding: 2%;
+}
+
+.main{
+    text-align: center;
+    padding-top: 5%;
+}
+
+.main-txt{
+    height: 2rem;
+    width: 50%;
+}
+
+.main-btn{
+    height: 2rem;
+    width: 10%;
+    background-color: #e0cfcf;
+    border: 0;
+}
+
+.section1{
+    margin: 4%;
+}
+
+.btn{
+    width: 18%;
+    font-size: 1rem;
+    background-color: #e0cfcf;
+    border: 0;
+    padding: 2%;
+}
+
+.section2{
+    text-align: center;
+}
