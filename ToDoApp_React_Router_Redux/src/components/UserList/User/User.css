@@ -1,0 +1,10 @@
+.user{
+    text-align: center;
+    margin: 5%;
+    background-color: #9bbba6;
+    padding: 5%;
+}
+
+.user:hover{
+    transform: scale(1.05);
+}

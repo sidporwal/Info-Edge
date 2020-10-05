@@ -1,0 +1,26 @@
+.home{
+    width: 70%;
+    background-color: #151111;
+}
+
+.homehead{
+    background-color: #d43232;
+    padding: 2%;
+}
+
+.homeheadbutton{
+    padding: 1%;
+    font-size: 1rem;
+    margin: 1%;
+    background-color: #c1c15a;
+}
+
+.homemain{
+    text-align: center;
+    margin-top: 20%;
+}
+
+.homemaintext{
+    color: #eadddd;
+    font-size: 3rem;
+}
