@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "LinkInReco",
+    "description": "Recommend Candidates to Agent Portal from LinkedIn",
+    "version": "1.0",
+    "author": "Siddhartha Porwal",
+    "action": {
+        "default_icon": "./images/trophy.png",
+        "default_title": "LinkedIn Recommendations",
+        "default_popup": "./Components/Templates/popup.html"
+    },
+    "host_permissions": [
+        "https://www.linkedin.com/*"
+    ],
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "declarativeContent",
+        "tabs",
+        "background",
+        "notifications"
+    ],
+    "background": {
+        "service_worker": "service-worker.js"
+    }
+}
