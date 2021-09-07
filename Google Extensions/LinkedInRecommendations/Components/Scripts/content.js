@@ -22,7 +22,12 @@ const ready = () => {
     FriendActionsEl[i].appendChild(newButton);
   }
   // send message back to popup script
-  chrome.runtime.sendMessage(null, "Yes");
+  chrome.runtime.sendMessage(
+    { data: "Hello popup, how are you" },
+    (response) => {
+      console.log(response);
+    }
+  );
 };
 
 setTimeout(ready, 3000);

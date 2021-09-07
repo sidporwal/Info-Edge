@@ -31,28 +31,14 @@ async function goToPage(url, url_index, tab_id) {
         chrome.tabs.onUpdated.removeListener(openPage);
 
         // fired when content script sends a message
-        chrome.runtime.onMessage.addListener(function getDOMInfo(data) {
-          // remove onMessage event as it may get duplicated
-          chrome.runtime.onMessage.removeListener(getDOMInfo);
-
-          let FriendList = [];
-
-          alert("Popup", data);
-          // for (let i = 0; i < data.FriendListEl.length; i++) {
-          //   FriendList.push(data.FriendListEl[i].innerText);
-          // }
-
-          alert(FriendList);
-          // let blob = new Blob([JSON.stringify(json_data)], {
-          //   type: "application/json;charset=utf-8",
-          // });
-          // let objectURL = URL.createObjectURL(blob);
-          // chrome.downloads.download({
-          //   url: objectURL,
-          //   filename: "content/" + url_index + "/data.json",
-          //   conflictAction: "overwrite",
-          // });
-        });
+        chrome.runtime.onMessage.addListener(
+          (message, sender, sendResponse) => {
+            alert("I am popup");
+            sendResponse({
+              data: "I am fine, thank you. How is life in the background?",
+            });
+          }
+        );
 
         // execute content script
         chrome.scripting.executeScript(
