@@ -2,6 +2,68 @@ const urls_list = [
   "https://www.linkedin.com/mynetwork/invite-connect/connections/",
 ];
 
+//-------------------------------------------------------------------------------------------
+
+const createUserCard = (userInfo) => {
+  const divEl = document.createElement("div");
+  divEl.setAttribute("class", "userCard");
+
+  const infoDivEl = document.createElement("div");
+  infoDivEl.setAttribute("class", "userDetails");
+
+  const headingEl = document.createElement("h1");
+  headingEl.textContent = userInfo.username;
+
+  const subHeadingEl = document.createElement("h3");
+  subHeadingEl.textContent = userInfo.occupation;
+
+  const crossEl = document.createElement("i");
+  crossEl.setAttribute("class", "fa fa-remove");
+
+  const linkEl = document.createElement("a");
+  linkEl.setAttribute("href", userInfo.profileLink);
+  linkEl.textContent = userInfo.profileLink;
+
+  const imgEl = document.createElement("img");
+  imgEl.setAttribute("src", userInfo.profileImgUrl);
+  imgEl.setAttribute("height", "60");
+  imgEl.setAttribute("width", "60");
+
+  divEl.appendChild(imgEl);
+  infoDivEl.appendChild(headingEl);
+  infoDivEl.appendChild(subHeadingEl);
+  infoDivEl.appendChild(linkEl);
+  infoDivEl.appendChild(crossEl);
+  divEl.appendChild(infoDivEl);
+
+  document.getElementById("div_1").appendChild(divEl);
+};
+
+// Update the relevant fields with the new data.
+const setDOMInfo = (info) => {
+  for (let i = 0; i < info.length; i++) {
+    createUserCard(info[i]);
+  }
+};
+
+window.addEventListener("DOMContentLoaded", () => {
+  chrome.tabs.query(
+    {
+      active: true,
+      currentWindow: true,
+    },
+    (tabs) => {
+      chrome.tabs.sendMessage(
+        tabs[0].id,
+        { from: "popup", subject: "DOMInfo" },
+        setDOMInfo
+      );
+    }
+  );
+});
+
+//-------------------------------------------------------------------------------------------
+
 startNavigation.onclick = function (element) {
   // query the current tab to find its id
   chrome.tabs.query(

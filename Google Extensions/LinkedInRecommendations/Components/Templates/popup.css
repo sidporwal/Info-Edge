@@ -35,7 +35,7 @@ h1 {
   border: none;
 }
 
-.contents{
+.contents {
   position: relative;
   top: 50px;
 }
@@ -63,7 +63,7 @@ h1 {
 }
 
 .sidenav .nav.active {
-  left: -10px;
+  left: -6px;
 }
 
 .sidenav .nav:hover {
@@ -124,4 +124,71 @@ h1 {
 .name {
   color: #ddd;
   padding: 6px 0 0 12px;
+}
+
+.userCard {
+  padding: 6px 8px 4px 8px;
+  border-radius: 20px;
+  background: #f2f6f9;
+  background: linear-gradient(
+    230deg,
+    #f2f6f9 0%,
+    #f2f6f9 82%,
+    #619ea0 82%,
+    #619ea0 100%
+  );
+  margin: 12px 0 0 12px;
+  max-width: 400px;
+  box-shadow: 0 2px 6px -2px rgb(23 34 96);
+  display: flex;
+  position: relative;
+}
+
+.userDetails {
+  margin-left: 8px;
+  width: 86%;
+}
+
+.userDetails > h1 {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 90%;
+}
+
+.userDetails > h3 {
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 90%;
+}
+
+.userDetails > a {
+  color: #0e88ff;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 90%;
+}
+
+.userdetails > a[visited] {
+  color: #0e88ff;
+}
+
+.userCard > img {
+  border-radius: 50%;
+}
+
+.fa {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
 }
