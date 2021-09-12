@@ -8,7 +8,7 @@ const getIframeInfo = () => {
   const iframeEl = document.getElementById("dibsFrame").contentDocument;
   iframeEl.getElementById("getListBtn").addEventListener("click", () => {
     window.open(
-      "chrome-extension://dbhcjpmidooenmdflheidlggnjnnmpfj/Components/Templates/SideModal/index.html"
+      "chrome-extension://hbncikilbbemamenepglpnkhocjfaeko/Components/Templates/SideModal/index.html"
     );
   });
 };
