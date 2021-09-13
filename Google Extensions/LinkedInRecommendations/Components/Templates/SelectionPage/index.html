@@ -1,0 +1,105 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Popup</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body style="background-color: ghostwhite">
+    <section class="progressSection">
+      <div class="step-progress-outer">
+        <div
+          class="RSPBprogressBar"
+          style="
+            background: rgb(187, 252, 234);
+            height: 10px;
+            margin-top: 20px;
+            width: 321px;
+            margin-left: 60px;
+          "
+        >
+          <div
+            class="RSPBstep"
+            style="
+              left: 0%;
+              transition-duration: 300ms;
+              transform: translateX(-50%) scale(1);
+            "
+          >
+            <div class="indexedStep accomplished">1</div>
+          </div>
+          <div
+            class="RSPBstep"
+            style="
+              left: 25%;
+              transition-duration: 300ms;
+              transform: translateX(-50%) scale(1);
+            "
+          >
+            <div class="indexedStep accomplished">2</div>
+          </div>
+          <div
+            class="RSPBstep"
+            style="
+              left: 50%;
+              transition-duration: 300ms;
+              transform: translateX(-50%) scale(1);
+            "
+          >
+            <div class="indexedStep accomplished">3</div>
+          </div>
+          <div
+            class="RSPBstep"
+            style="
+              left: 75%;
+              transition-duration: 300ms;
+              transform: translateX(-50%) scale(1);
+            "
+          >
+            <div class="indexedStep accomplished">4</div>
+          </div>
+          <div
+            class="RSPBstep"
+            style="
+              left: 100%;
+              transition-duration: 300ms;
+              transform: translateX(-50%) scale(1);
+            "
+          >
+            <div class="indexedStep null">5</div>
+          </div>
+          <div
+            class="RSPBprogression"
+            style="
+              background: linear-gradient(
+                toright,
+                rgb(85, 239, 196),
+                rgb(85, 239, 196)
+              );
+              width: 75%;
+              top: 20px;
+              z-index: 1;
+            "
+          ></div>
+        </div>
+      </div>
+      <div>
+        <section class="step-progress-titles-section">
+          <h3 class="step-progress-title">Install<br />Extension</h3>
+          <h3 class="step-progress-title">Go to<br />Linkedin</h3>
+          <h3 class="step-progress-title">Sync<br />contacts</h3>
+          <h3 class="step-progress-title">Vouch for<br />friends</h3>
+          <h3 class="step-progress-title">Track<br /></h3>
+        </section>
+      </div>
+    </section>
+    <div class="navigation">
+      <img src="../../../images/DIBS.png" height="60" width="60" />
+      <h1 class="companyName">DIBS</h1>
+    </div>
+    <div class="cardsWrapper" id="cardsWrapper">
+      <!-- <p>Vouch your friends and earn</p> -->
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
