@@ -3,13 +3,12 @@ chrome.action.onClicked.addListener(() => {
     // execute content script
     setTimeout(() => {
       chrome.scripting.executeScript({
-        target: { tabId: tab.id, allFrames: true },
+        target: { tabId: tab.id },
         files: ["./Components/Scripts/injectSideBar.js"],
-      })
+      });
     }, 5000);
   });
 });
-
 
 // chrome.runtime.onMessage.addListener((msg, sender) => {
 //   // First, validate the message's structure.
@@ -18,3 +17,5 @@ chrome.action.onClicked.addListener(() => {
 //     chrome.pageAction.show(sender.tab.id);
 //   }
 // });
+
+// chrome.extension.getURL('popup.html')
