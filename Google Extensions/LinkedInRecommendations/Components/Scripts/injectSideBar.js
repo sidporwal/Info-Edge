@@ -1,5 +1,5 @@
 const HTML_TEMPLATE =
-  '<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Popup</title><style>*{margin:0;padding:0;border:0;outline:0}.RSPBstep{display:inline-flex;justify-content:center;align-items:center;z-index:0;position:absolute;transform:translateX(-50%);transition-property:all;transition-timing-function:ease}.RSPBprogression{position:absolute;transition:width .3s ease;left:0;top:0;bottom:0;border-radius:10px;background:rgba(0,116,217,.8);z-index:-1;height:10px}.step-progress-titles-section{color:#000;display:flex;font-weight:700;margin-top:16px}.step-progress-title{flex:1;align-content:center;text-align:center;font-size:10px}.main-outer{height:100%}.screen-decor{margin-left:16px;margin-right:16px;height:100%;margin-top:8%}.onboarding-button{background-color:#55efc4;width:100%;height:48px;margin-top:64px;color:#000;border-radius:8px;font-weight:500;font-size:medium;padding:5px 10px;cursor:pointer;-webkit-transition-duration:.4s;transition-duration:.4s}.onboarding-button:hover{box-shadow:0 12px 16px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19)}.small-heading-text{font-size:small}.indexedStep{color:#fff;width:32px;height:32px;font-size:16px;background-color:#55efc4;border-radius:50%;display:flex;justify-content:center;align-items:center}.accomplished{background-color:#55efc4}.step-progress-outer{margin-left:32px;margin-right:32px;margin-top:8px}.RSPBprogressBar{height:10px;line-height:1;border-radius:10px;position:relative;background-color:hsla(0,0%,82.7%,.6);display:flex;justify-content:space-between;align-items:center;z-index:0}</style></head><body style="background-color:#f8f8ff"><div id="popup-root"><section id="popup" class="main-section" style="height:949px"><section><div class="step-progress-outer"><div class="RSPBprogressBar" style="background:#bbfcea;height:10px;margin-top:20px"><div class="RSPBstep" style="left:0;transition-duration:300ms;transform:translateX(-50%) scale(1)"><div class="indexedStep accomplished">1</div></div><div class="RSPBstep" style="left:25%;transition-duration:300ms;transform:translateX(-50%) scale(1)"><div class="indexedStep accomplished">2</div></div><div class="RSPBstep" style="left:50%;transition-duration:300ms;transform:translateX(-50%) scale(1)"><div class="indexedStep accomplished">3</div></div><div class="RSPBstep" style="left:75%;transition-duration:300ms;transform:translateX(-50%) scale(1)"><div class="indexedStep accomplished">4</div></div><div class="RSPBstep" style="left:100%;transition-duration:300ms;transform:translateX(-50%) scale(1)"><div class="indexedStep null">5</div></div><div class="RSPBprogression" style="background:linear-gradient(toright,#55efc4,#55efc4);width:75%"></div></div></div><div><section class="step-progress-titles-section"><h3 class="step-progress-title">Install<br>Extension</h3><h3 class="step-progress-title">Go to<br>Linkedin</h3><h3 class="step-progress-title">Sync<br>contacts</h3><h3 class="step-progress-title">Vouch for<br>friends</h3><h3 class="step-progress-title">Track<br></h3></section></div><div class="main-outer"><section class="screen-decor" style="background-position:70%40%"><h3 style="margin-top:20%;font-size:22px;margin-left:16px;font-weight:350"><span>Hi VIVEK, vouch for engineers from LinkedIn and earn</span></h3><h3 style="font-size:16px;margin-top:32px;margin-left:16px"><span style="color:#ff565e">👉 ₹1Lac</span>for successful hire<br></h3><h3 style="font-size:16px;margin-top:32px;margin-left:16px"><span style="color:#ff565e">👉 ₹1000</span>per interviewed candidate<br></h3><h3 style="font-size:16px;margin-top:32px;margin-left:16px"><span style="color:#ff565e">👉 ₹100</span>for making linkedin connections public<br></h3><button id="getListBtn" class="onboarding-button" style="margin-top:64px">Get list of LinkedIn connections to vouch</button><h1 class="small-heading-text" style="margin:16px;text-align:center">We are 100% secure.</h1></section></div></section></section></div></body></html>';
+  '<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Popup</title><style>*{margin:0;padding:0;border:0;outline:0}.RSPBstep{display:inline-flex;justify-content:center;align-items:center;z-index:0;position:absolute;transform:translateX(-50%);transition-property:all;transition-timing-function:ease}.RSPBprogression{position:absolute;transition:width .3s ease;left:0;top:0;bottom:0;border-radius:10px;background:rgba(0,116,217,.8);z-index:-1;height:10px}.step-progress-titles-section{color:#000;display:flex;font-weight:700;margin-top:16px}.step-progress-title{flex:1;align-content:center;text-align:center;font-size:10px}.main-outer{height:100%}.screen-decor{margin-left:16px;margin-right:16px;height:100%;margin-top:8%}.onboarding-button{background-color:#55efc4;width:100%;height:48px;margin-top:64px;color:#000;border-radius:8px;font-weight:500;font-size:medium;padding:5px 10px;cursor:pointer;-webkit-transition-duration:.4s;transition-duration:.4s}.onboarding-button:hover{box-shadow:0 12px 16px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19)}.small-heading-text{font-size:small}.indexedStep{color:#fff;width:32px;height:32px;font-size:16px;background-color:#55efc4;border-radius:50%;display:flex;justify-content:center;align-items:center}.accomplished{background-color:#55efc4}.step-progress-outer{margin-left:32px;margin-right:32px;margin-top:8px}.RSPBprogressBar{height:10px;line-height:1;border-radius:10px;position:relative;background-color:hsla(0,0%,82.7%,.6);display:flex;justify-content:space-between;align-items:center;z-index:0}</style></head><body style="background-color:#f8f8ff"><div id="popup-root"><section id="popup" class="main-section" style="height:949px"><section><div class="step-progress-outer"><div class="RSPBprogressBar" style="background:#bbfcea;height:10px;margin-top:20px"><div class="RSPBstep" style="left:0;transition-duration:300ms;transform:translateX(-50%) scale(1)"><div class="indexedStep accomplished">1</div></div><div class="RSPBstep" style="left:25%;transition-duration:300ms;transform:translateX(-50%) scale(1)"><div class="indexedStep accomplished">2</div></div><div class="RSPBstep" style="left:50%;transition-duration:300ms;transform:translateX(-50%) scale(1)"><div class="indexedStep accomplished">3</div></div><div class="RSPBstep" style="left:75%;transition-duration:300ms;transform:translateX(-50%) scale(1)"><div class="indexedStep accomplished">4</div></div><div class="RSPBstep" style="left:100%;transition-duration:300ms;transform:translateX(-50%) scale(1)"><div class="indexedStep null">5</div></div><div class="RSPBprogression" style="background:linear-gradient(toright,#55efc4,#55efc4);width:75%"></div></div></div><div><section class="step-progress-titles-section"><h3 class="step-progress-title">Install<br>Extension</h3><h3 class="step-progress-title">Go to<br>Linkedin</h3><h3 class="step-progress-title">Sync<br>contacts</h3><h3 class="step-progress-title">Vouch for<br>friends</h3><h3 class="step-progress-title">Track<br></h3></section></div><div class="main-outer"><section class="screen-decor" style="background-position:70%40%"><h3 style="margin-top:20%;font-size:22px;margin-left:16px;font-weight:350"><span>Hi VIVEK, vouch for engineers from LinkedIn and earn</span></h3><h3 style="font-size:16px;margin-top:32px;margin-left:16px"><span style="color:#ff565e">👉 ₹1Lac</span>for successful hire<br></h3><h3 style="font-size:16px;margin-top:32px;margin-left:16px"><span style="color:#ff565e">👉 ₹1000</span>per interviewed candidate<br></h3><h3 style="font-size:16px;margin-top:32px;margin-left:16px"><span style="color:#ff565e">👉 ₹100</span>for making linkedin connections public<br></h3><button id="getListBtn" class="onboarding-button" style="margin-top:64px; opacity:0.5; cursor: not-allowed;">Fetching Your LinkedIn Data</button><h1 class="small-heading-text" style="margin:16px;text-align:center">We are 100% secure.</h1></section></div></section></section></div></body></html>';
 
 const fetchUserContactInfo = (iframeId) => {
   return new Promise((resolve, reject) => {
@@ -8,7 +8,7 @@ const fetchUserContactInfo = (iframeId) => {
         const documentX = document.getElementById(iframeId).contentDocument;
         if (
           documentX.getElementsByClassName(
-            "pv-contact-info__contact-type ci-email"
+            "pv-contact-info__contact-type ci-vanity-url"
           )[0]
         ) {
           const profileUrl = documentX.getElementsByClassName(
@@ -118,7 +118,7 @@ const getUserInfoFrame = async () => {
     "position: fixed; top: 200px; left: 0px; height: 500px; width: 500px; z-index: -9999;";
   document.body.appendChild(iframe);
   try {
-    await fetchUserInfo();
+    const data = await fetchUserInfo();
     // API Post Current Use
   } catch (error) {
     console.error(error);
@@ -142,8 +142,8 @@ const fetchConnectionMail = (profileUrl) => {
         const data = values;
         setTimeout(() => {
           document.body.removeChild(iframe);
+          resolve(data);
         }, 5000);
-        resolve(data);
       });
     } catch (error) {
       console.error(error);
@@ -285,11 +285,25 @@ const userConnectionFrame = async () => {
   }
 };
 
-const getIframeInfo = () => {
-  const iframeEl = document.getElementById("dibsFrame").contentDocument;
-  iframeEl.getElementById("getListBtn").addEventListener("click", () => {
-    window.open("https://www.bigshyft.com/");
-  });
+const getBtnState = (state) => {
+  const intervalId = setInterval(() => {
+    const documentX = document.getElementById("dibsFrame").contentDocument;
+    if (documentX.getElementById("getListBtn")) {
+      if (state) {
+        documentX.getElementById("getListBtn").disabled = false;
+        documentX.getElementById("getListBtn").innerText =
+          "Get list of LinkedIn connections to vouch";
+        documentX.getElementById("getListBtn").addEventListener("click", () => {
+          window.open("https://www.bigshyft.com/");
+        });
+        documentX.getElementById("getListBtn").style =
+          "opacity: 1; cursor: pointer;";
+      } else {
+        documentX.getElementById("getListBtn").disabled = true;
+      }
+      clearInterval(intervalId);
+    }
+  }, 1000);
 };
 
 const getSideBanner = () => {
@@ -300,16 +314,17 @@ const getSideBanner = () => {
     "height: 100%; margin: 0px; padding: 0px; position: fixed; right: 0px; top: 0px; width: 400px;  z-index: 2148372; background: rgb(242, 242, 242); box-shadow: rgb(0 0 0 / 20%) -4px 0px 30px 15px; display: block; opacity: 1; transition: transform 0.25s ease-in-out 0s, opacity 0.25s ease-in-out 0s; transform: translateX(0%);"
   );
   iframe.srcdoc = HTML_TEMPLATE;
-  // iframe.setAttribute("src", chrome.runtime.getURL("/Components/Templates/SideModal/index.html"));
   document.body.appendChild(iframe);
-  setTimeout(getIframeInfo, 3000);
+  setTimeout(getBtnState, 3000);
 };
 
 const startServicesId = setInterval(() => {
   if (document) {
     getSideBanner();
-    getUserInfoFrame();
-    userConnectionFrame();
+    getUserInfoFrame().then(() => {
+      getBtnState(true);
+      userConnectionFrame();
+    });
     clearInterval(startServicesId);
   }
 }, 1000);
