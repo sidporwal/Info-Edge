@@ -6,8 +6,7 @@
     "author": "Siddhartha Porwal",
     "action": {
         "default_icon": "./images/DIBS.png",
-        "default_title": "LinkedIn Recommendations",
-        "default_popup": "./Components/Templates/popup.html"
+        "default_title": "LinkedIn Recommendations"
     },
     "host_permissions": [
         "https://www.linkedin.com/*"

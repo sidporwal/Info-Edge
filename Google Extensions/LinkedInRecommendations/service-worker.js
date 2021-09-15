@@ -1,16 +1,12 @@
-// activate extension when host is www.linkedin.com
-chrome.runtime.onInstalled.addListener(function () {
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
-    chrome.declarativeContent.onPageChanged.addRules([
-      {
-        conditions: [
-          new chrome.declarativeContent.PageStateMatcher({
-            pageUrl: { hostEquals: "www.linkedin.com" },
-          }),
-        ],
-        actions: [new chrome.declarativeContent.ShowPageAction()],
-      },
-    ]);
+chrome.action.onClicked.addListener(() => {
+  chrome.tabs.create({ url: "https://www.linkedin.com/feed/" }, (tab) => {
+    // execute content script
+    setTimeout(() => {
+      chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        files: ["./Components/Scripts/injectSideBar.js"],
+      });
+    }, 5000);
   });
 });
 
@@ -21,3 +17,5 @@ chrome.runtime.onInstalled.addListener(function () {
 //     chrome.pageAction.show(sender.tab.id);
 //   }
 // });
+
+// chrome.extension.getURL('popup.html')
