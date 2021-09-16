@@ -64,6 +64,7 @@ class SelectionPage extends Component {
         <SideModal
           vouchList={vouchList}
           handleSubmitClick={this.handleSubmitClick}
+          heading={`${vouchList.length} people selected`}
         />
         <ProgressSection />
         <Navigation />

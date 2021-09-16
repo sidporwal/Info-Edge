@@ -6,6 +6,7 @@
   border: 0;
   outline: 0;
   font-family: "Manrope", sans-serif, cursive;
+  box-sizing: border-box;
 }
 
 .navigation {
@@ -87,7 +88,7 @@
   background: rgb(187, 252, 234);
   height: 10px;
   margin-top: 20px;
-  width: 321px;
+  width: 32%;
   margin-left: 60px;
 }
 
@@ -129,8 +130,9 @@
 }
 
 .cardsWrapper {
-  margin: 48px;
+  margin: 100px 0 0 0;
   width: 72%;
+  padding-left: 4%;
 }
 
 .amrginTop_10 {

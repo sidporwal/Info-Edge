@@ -7,7 +7,7 @@ import "./SideModal.css";
 const SideModal = ({ heading, vouchList, handleSubmitClick }) => {
   return (
     <div className="sideModal">
-      <p className="heading">{`${vouchList.length}` + heading}</p>
+      <p className="heading">{heading}</p>
       <RenderMiniCards cardList={vouchList} />
       <button
         className={cx("submitBtn", {
@@ -28,7 +28,7 @@ SideModal.propTypes = {
 };
 
 SideModal.defaultProps = {
-  heading: " people selected",
+  heading: "",
   vouchList: [],
   handleSubmitClick: () => {},
 };

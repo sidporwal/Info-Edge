@@ -49,7 +49,7 @@ class CandidateCard extends Component {
         />
         <p className="userName">{candidateObj.name}</p>
         <ul className="infoCntr">
-          <li className="infoData height_94 block2">
+          <li className="infoData height_100 block2">
             {candidateObj.occupation}
           </li>
           <li className="infoData">

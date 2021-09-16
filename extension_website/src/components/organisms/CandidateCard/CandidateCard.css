@@ -8,8 +8,8 @@ div > .secondary {
 }
 
 .userCard {
-  width: 200px;
-  height: 310px;
+  width: 250px;
+  height: 350px;
   margin: 0 6px 20px 12px;
   padding: 24px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -70,13 +70,13 @@ div > .secondary {
   color: #1c85ff;
   background: white;
   border: 1px solid #badaff;
-  position: absolute;
-  bottom: 24px;
+  width: 100%;
   border-radius: 100px;
   display: flex;
   align-items: center;
-  margin-left: 24px;
   cursor: pointer;
+  justify-content: center;
+  margin-top: 8px;
 }
 
 .button:hover {
@@ -88,8 +88,8 @@ div > .secondary {
   border: 1px solid #1c85ff;
 }
 
-.height_94 {
-  height: 94px;
+.height_100 {
+  height: 100px;
 }
 
 .block2 {
