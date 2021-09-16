@@ -42,9 +42,7 @@
 }
 
 .step-progress-outer {
-  margin-left: 32px;
-  margin-right: 32px;
-  margin-top: 8px;
+  margin: 8px 32px 0;
 }
 
 .indexedStep {
@@ -80,7 +78,7 @@
 
 .progressSection {
   position: absolute;
-  top: 0%;
+  top: 10px;
   right: 30%;
   width: 34%;
 }

@@ -10,13 +10,14 @@
   padding: 32px 16px;
   box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .heading {
   font-weight: 700;
   font-size: 24px;
   text-decoration: underline;
+  text-align: center;
 }
 
 .submitBtn {
@@ -32,6 +33,7 @@
   position: absolute;
   bottom: 20px;
   cursor: pointer;
+  margin-left: 10%;
 }
 
 .submitBtn:hover {
