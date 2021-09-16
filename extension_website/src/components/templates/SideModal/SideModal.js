@@ -1,4 +1,5 @@
 import React from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
 import RenderMiniCards from "../../organisms/RenderMiniCards";
 import "./SideModal.css";
@@ -8,7 +9,12 @@ const SideModal = ({ heading, vouchList, handleSubmitClick }) => {
     <div className="sideModal">
       <p className="heading">{`${vouchList.length}` + heading}</p>
       <RenderMiniCards cardList={vouchList} />
-      <button className="submitBtn" onClick={handleSubmitClick}>
+      <button
+        className={cx("submitBtn", {
+          disableBtn: !!(vouchList && !vouchList.length),
+        })}
+        onClick={handleSubmitClick}
+      >
         Submit
       </button>
     </div>
