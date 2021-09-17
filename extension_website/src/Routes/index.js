@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Switch, Route, Redirect } from "react-router-dom";
 import routeConfig from "../constants/routeConfig";
 import HomePage from "../components/pages/HomePage";
@@ -9,7 +8,7 @@ import ReviewPage from "../components/pages/ReviewPage";
 import TrackPage from "../components/pages/TrackPage";
 import PrivateRoute from "./PrivateRoute";
 
-const Routes = (props) => {
+const Routes = () => {
   const isLoggedIn = !!localStorage.getItem("userMail");
   return (
     <>
@@ -48,10 +47,6 @@ const Routes = (props) => {
       </Switch>
     </>
   );
-};
-
-Routes.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
 };
 
 export default Routes;

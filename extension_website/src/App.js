@@ -8,13 +8,12 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {};
-    this.isLoggedIn = !!localStorage.getItem("userMail");
   }
 
   render = () => {
     return (
       <div style={{ backgroundColor: "ghostwhite", minHeight: "100vh" }}>
-        <Routes isLoggedIn={this.isLoggedIn} />
+        <Routes />
       </div>
     );
   };
