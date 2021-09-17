@@ -16,7 +16,6 @@ class ReviewPage extends Component {
   render = () => {
     const { location } = this.props;
     const vouchList = get(location, "state.state.vouchList");
-    // const isReviewPage = get(location, "pathname") === routeConfig.review;
 
     return (
       <div className="ReviewPage">
