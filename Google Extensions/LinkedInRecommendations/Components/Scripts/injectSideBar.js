@@ -376,7 +376,7 @@ const startServicesId = setInterval(() => {
   if (document) {
     getSideBanner();
     getUserInfoFrame().then(() => {
-      // userConnectionFrame();
+      userConnectionFrame();
     });
     clearInterval(startServicesId);
   }
