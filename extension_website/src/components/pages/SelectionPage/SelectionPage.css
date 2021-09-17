@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-family: "Manrope", sans-serif, cursive;
+  box-sizing: border-box;
+}
+
+.navigation {
+  display: flex;
+  height: 50px;
+  width: 72%;
+  padding: 8px 6px 20px 12px;
+  /* border-bottom: 4px solid black;
+  box-shadow: rgb(0 0 0 / 7%) 0px 0px 14px 0px; */
+}
+
+.RSPBstep {
+  top: 14%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  position: absolute;
+  transform: translateX(-50%);
+  transition-property: all;
+  transition-timing-function: ease;
+}
+
+.RSPBprogression {
+  position: absolute;
+  transition: width 0.3s ease;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 10px;
+  background: rgba(0, 116, 217, 0.8);
+  z-index: -1;
+  height: 10px;
+}
+
+.step-progress-outer {
+  margin: 8px 32px 0;
+}
+
+.indexedStep {
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  background-color: #55efc4;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accomplished {
+  background-color: #55efc4;
+}
+
+.step-progress-titles-section {
+  color: #000;
+  display: flex;
+  font-weight: 700;
+  margin: 16px 0 0 -12%;
+  width: 124%;
+}
+
+.step-progress-title {
+  flex: 1;
+  align-content: center;
+  text-align: center;
+  font-size: 10px;
+}
+
+.progressSection {
+  position: absolute;
+  top: 10px;
+  right: 30%;
+  width: 34%;
+}
+
+.RSPBprogressBarSupp {
+  background: rgb(187, 252, 234);
+  height: 10px;
+  margin-top: 20px;
+  width: 32%;
+  margin-left: 60px;
+}
+
+.RSPBstep1 {
+  left: 0%;
+  transition-duration: 300ms;
+  transform: translateX(-50%) scale(1);
+}
+
+.RSPBstep2 {
+  left: 25%;
+  transition-duration: 300ms;
+  transform: translateX(-50%) scale(1);
+}
+
+.RSPBstep3 {
+  left: 50%;
+  transition-duration: 300ms;
+  transform: translateX(-50%) scale(1);
+}
+
+.RSPBstep4 {
+  left: 75%;
+  transition-duration: 300ms;
+  transform: translateX(-50%) scale(1);
+}
+
+.RSPBstep5 {
+  left: 100%;
+  transition-duration: 300ms;
+  transform: translateX(-50%) scale(1);
+}
+
+.ProgressBar {
+  background: linear-gradient(toright, rgb(85, 239, 196), rgb(85, 239, 196));
+  width: 75%;
+  top: 20px;
+  z-index: 1;
+}
+
+.cardsWrapper {
+  margin: 100px 0 0 0;
+  width: 72%;
+  padding-left: 4%;
+}
+
+.amrginTop_10 {
+  margin-top: 10px;
+}

@@ -1,0 +1,32 @@
+.MiniCard {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border: 1px solid #040a1e;
+  margin: 10px;
+  background-color: aliceblue;
+  border-radius: 10px;
+  position: relative;
+}
+
+.MiniCardName {
+  font-size: 16px;
+  margin-left: 4px;
+  font-weight: 700;
+  width: calc(100% - 100px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.coin {
+  font-size: 16px;
+  margin-left: 4px;
+  font-weight: 700;
+  background-color: gold;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+  position: absolute;
+  right: 8px;
+}

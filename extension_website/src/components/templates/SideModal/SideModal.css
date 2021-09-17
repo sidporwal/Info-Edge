@@ -1,0 +1,49 @@
+.sideModal {
+  width: 27%;
+  position: fixed;
+  right: 0;
+  top: 3px;
+  height: 99%;
+  border-radius: 12px 0 0 12px;
+  background-color: rgb(129, 216, 247, 0.4);
+  box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+  padding: 32px 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-weight: 700;
+  font-size: 24px;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.submitBtn {
+  padding: 12px 24px;
+  height: 48px;
+  border-radius: 48px;
+  font-weight: 700;
+  font-size: 17px;
+  background: #fff;
+  border: 1px solid #040a1e;
+  color: #040a1e;
+  width: 70%;
+  position: absolute;
+  bottom: 20px;
+  cursor: pointer;
+  margin-left: 10%;
+}
+
+.submitBtn:hover {
+  box-shadow: 0 3px 0.94rem rgb(78 123 173 / 19%);
+  border: 1px solid black;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.911);
+}
+
+.disableBtn {
+  pointer-events: none;
+  opacity: 0.4;
+}

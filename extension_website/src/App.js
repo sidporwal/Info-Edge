@@ -15,7 +15,7 @@ class App extends PureComponent {
 
   render = () => {
     return (
-      <div>
+      <div style={{ backgroundColor: "ghostwhite" }}>
         <Switch>
           <Route path={routeConfig.about} exact component={AboutUsPage} />
           <Route path={routeConfig.selection} exact component={SelectionPage} />
