@@ -1,0 +1,53 @@
+.JDCard {
+  padding: 12px;
+  background: #fff;
+  z-index: 10;
+  width: 71%;
+  margin: 75px 12px 20px;
+  box-shadow: 0 0 20px 0 rgb(0 0 0 / 15%);
+  position: relative;
+}
+
+.JDCardImgWrap {
+  display: flex;
+  position: relative;
+}
+
+.JDCardDetailsWrap {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+}
+
+.JDCompanyName {
+  font-weight: 700;
+  color: black;
+  font-size: 21px;
+  line-height: 27px;
+}
+
+.JDCompanyLocation {
+  font-size: 13px;
+  line-height: 15px;
+  color: rgba(54, 52, 52, 0.678);
+}
+
+.jobID {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  font-size: 13px;
+  line-height: 15px;
+  color: rgba(54, 52, 52, 0.678);
+}
+
+.JDDetails {
+  font-size: 15px;
+  line-height: 17px;
+  color: #040a1e;
+  margin: 2px 0;
+}
+
+.colorShadow {
+  color: rgba(54, 52, 52, 0.678);
+}

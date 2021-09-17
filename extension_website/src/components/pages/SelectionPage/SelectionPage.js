@@ -5,6 +5,7 @@ import SideModal from "../../templates/SideModal";
 import ProgressSection from "../../organisms/ProgressSection";
 import Navigation from "../../molecules/Navigation/Navigation";
 import Button from "../../atoms/Button";
+import JDCard from "../../organisms/JDCard";
 
 import CandidatesList from "./CandidateListUtils";
 import routeConfig from "../../../constants/routeConfig";
@@ -79,6 +80,7 @@ class SelectionPage extends Component {
         />
         <ProgressSection />
         <Navigation />
+        <JDCard />
         <div className="cardsWrapper">
           {CandidatesList.map((candidate, index) => (
             <CandidateCard
