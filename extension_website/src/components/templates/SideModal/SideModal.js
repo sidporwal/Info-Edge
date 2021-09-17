@@ -19,6 +19,7 @@ const SideModal = ({
   handleCrossClick,
   wrapperClass,
   submitBtnText,
+  rewardsBalance,
 }) => {
   return (
     isVisible && (
@@ -57,7 +58,7 @@ const SideModal = ({
             <div className="amountDiv">
               <div className="amountWrapper marginBottom_20">
                 <p className="amount trackAmt colorBlack">
-                  Rs {get(vouchList, "length")}
+                  Rs {rewardsBalance}
                 </p>
                 <p className="bold"> {`${"->"}`} </p>
                 <p className="amountTitle">already redeemed value</p>
@@ -149,6 +150,7 @@ SideModal.propTypes = {
   isTrackPage: PropTypes.bool,
   isVisible: PropTypes.bool,
   heading: PropTypes.string,
+  rewardsBalance: PropTypes.number,
   wrapperClass: PropTypes.string,
   submit: PropTypes.string,
   vouchList: PropTypes.array,
@@ -160,6 +162,7 @@ SideModal.defaultProps = {
   isTrackPage: false,
   isVisible: true,
   heading: "",
+  rewardsBalance: 0,
   wrapperClass: "",
   submit: "Submit",
   vouchList: [],

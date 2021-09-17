@@ -14,8 +14,26 @@ class TrackPage extends Component {
     super(props);
     this.state = {
       isVisible: false,
+      rewardsBalance: 0,
     };
   }
+
+  componentDidMount = () => {
+    fetch("http://10.120.9.102:5556/user/details", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        token: "anshul.chauhan@gmail.com",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ rewardsBalance: data.rewardsBalance });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   handleCrossClick = () => {
     this.setState({ isVisible: !this.state.isVisible });
@@ -27,7 +45,7 @@ class TrackPage extends Component {
   };
 
   render = () => {
-    const { isVisible } = this.state;
+    const { isVisible, rewardsBalance } = this.state;
     return (
       <div className="TrackPage">
         <SideModal
@@ -42,6 +60,7 @@ class TrackPage extends Component {
           handleCrossClick={this.handleCrossClick}
           isVisible={this.state.isVisible}
           isTrackPage
+          rewardsBalance={rewardsBalance}
         />
         <Button
           btnText="Manage Wallet"
