@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 // import PropTypes from "prop-types";
-import axios from "axios";
 import CandidateCard from "../../organisms/CandidateCard";
 import SideModal from "../../templates/SideModal";
 import ProgressSection from "../../organisms/ProgressSection";
 import Navigation from "../../molecules/Navigation/Navigation";
 import Button from "../../atoms/Button";
 import JDCard from "../../organisms/JDCard";
+import AlertMsg from "../../molecules/AlertMsg";
 
 import CandidatesList from "./CandidateListUtils";
 import routeConfig from "../../../constants/routeConfig";
@@ -87,6 +87,7 @@ class SelectionPage extends Component {
     const { vouchList, jDs, isJDLoading } = this.state;
     return (
       <div className="selectionPage">
+        <AlertMsg />
         <Button
           btnText="Go to Track Page"
           cntrClass="navBtn selectionNavBtn"

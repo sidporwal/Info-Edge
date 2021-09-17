@@ -5,7 +5,7 @@ import LinkedIn from "../../../assets/images/png/linkedin.png";
 import getToolTipContent from "../../../utils/getToolTipContent";
 import "./ReviewCandidateCard.css";
 
-const ReviewCandidateCard = ({ candidateObj }) => {
+const ReviewCandidateCard = ({ candidateObj, handleChange }) => {
   return (
     <div className="ReviewCardCntr">
       <Tooltip title={getToolTipContent(candidateObj.name)}>
@@ -17,7 +17,7 @@ const ReviewCandidateCard = ({ candidateObj }) => {
           alt={candidateObj.name}
           height="60"
           width="60"
-          classname="userLogo"
+          className="userLogo"
         />
         <a
           href={candidateObj.profileUrl}
@@ -35,7 +35,7 @@ const ReviewCandidateCard = ({ candidateObj }) => {
           className="linkedinIcon"
         />
       </div>
-      <QnA />
+      <QnA handleChange={handleChange} candidateObj={candidateObj} />
     </div>
   );
 };

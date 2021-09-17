@@ -1,0 +1,7 @@
+.alertMsg {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  box-shadow: 0 10px 12px rgb(0 0 0 / 15%);
+  z-index: 1;
+}
