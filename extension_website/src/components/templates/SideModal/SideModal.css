@@ -13,6 +13,10 @@
   flex-direction: column;
 }
 
+.marginRight_6 {
+  margin-right: 6px;
+}
+
 .heading {
   font-weight: 700;
   font-size: 24px;
@@ -34,6 +38,8 @@
   bottom: 20px;
   cursor: pointer;
   margin-left: 10%;
+  display: flex;
+  justify-content: center;
 }
 
 .submitBtn:hover {
@@ -98,4 +104,23 @@
 .contactUs {
   color: #1c88ff;
   cursor: pointer;
+}
+
+.crossIcon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+}
+
+div > .trackAmt {
+  min-width: 120px;
+}
+
+div > .colorBlack {
+  background-color: darkgrey;
+}
+
+.marginBottom_20 {
+  margin-bottom: 20px;
 }

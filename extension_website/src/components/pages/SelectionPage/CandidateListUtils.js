@@ -1,3 +1,5 @@
+import get from "../../../utils/get";
+
 export const fetchConnectionsList = () => {
   return new Promise((resolve, reject) => {
     const intervalId = setInterval(() => {
@@ -9,7 +11,7 @@ export const fetchConnectionsList = () => {
       })
         .then((res) => res.json())
         .then((res) => {
-          if (res.data.length) {
+          if (get(res, "data.length")) {
             clearInterval(intervalId);
             resolve(res.data);
           }
@@ -22,5 +24,3 @@ export const fetchConnectionsList = () => {
     }, 5000);
   });
 };
-
-
