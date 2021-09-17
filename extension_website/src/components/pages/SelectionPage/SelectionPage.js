@@ -38,9 +38,11 @@ class SelectionPage extends Component {
           jDs: data,
           selectedJD: data.jobs[0],
         });
-        fetchConnectionsList().then((candidateList) => {
-          this.setState({ candidateList });
-        });
+        fetchConnectionsList({ premiumJobId: data.jobs[0].premiumJobId }).then(
+          (candidateList) => {
+            this.setState({ candidateList });
+          }
+        );
       })
       .catch((err) => {
         this.setState({ isJDLoading: true });
@@ -94,7 +96,9 @@ class SelectionPage extends Component {
 
   handleChangeJD = (changedIndex) => {
     this.setState({ selectedJD: this.state.jDs.jobs[changedIndex] });
-    fetchConnectionsList().then((candidateList) => {
+    fetchConnectionsList({
+      premiumJobId: this.state.jDs.jobs[changedIndex].premiumJobId,
+    }).then((candidateList) => {
       this.setState({ candidateList });
     });
   };

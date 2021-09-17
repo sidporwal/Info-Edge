@@ -1,14 +1,17 @@
 import get from "../../../utils/get";
 
-export const fetchConnectionsList = () => {
+export const fetchConnectionsList = ({ premiumJobId }) => {
   return new Promise((resolve, reject) => {
     const intervalId = setInterval(() => {
-      fetch("http://10.120.9.102:5556/linkedIn/connection/fetch", {
-        method: "GET",
-        headers: {
-          Token: localStorage.getItem("userMail"),
-        },
-      })
+      fetch(
+        `http://10.120.9.102:5556/linkedIn/connection/fetch?jobId=${premiumJobId}`,
+        {
+          method: "GET",
+          headers: {
+            Token: localStorage.getItem("userMail"),
+          },
+        }
+      )
         .then((res) => res.json())
         .then((res) => {
           if (get(res, "data.length")) {
