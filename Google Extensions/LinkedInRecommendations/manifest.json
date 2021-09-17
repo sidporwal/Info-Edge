@@ -9,7 +9,8 @@
         "default_title": "LinkedIn Recommendations"
     },
     "host_permissions": [
-        "https://www.linkedin.com/*"
+        "https://www.linkedin.com/*",
+        "http://10.120.9.102:8081/*"
     ],
     "permissions": [
         "storage",
