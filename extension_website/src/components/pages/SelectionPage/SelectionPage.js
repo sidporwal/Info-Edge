@@ -7,7 +7,7 @@ import Navigation from "../../molecules/Navigation/Navigation";
 import Button from "../../atoms/Button";
 import JDCard from "../../organisms/JDCard";
 
-import CandidatesList from "./CandidateListUtils";
+import { fetchConnectionsList } from "./CandidateListUtils";
 import routeConfig from "../../../constants/routeConfig";
 
 import "./SelectionPage.css";
@@ -17,7 +17,14 @@ class SelectionPage extends Component {
     super(props);
     this.state = {
       vouchList: [],
+      candidateList: [],
     };
+  }
+
+  componentWillMount() {
+    fetchConnectionsList().then((candidateList) => {
+      this.setState({ candidateList });
+    });
   }
 
   containsObject = (obj, array) => {
@@ -65,7 +72,7 @@ class SelectionPage extends Component {
   };
 
   render = () => {
-    const { vouchList } = this.state;
+    const { vouchList, candidateList } = this.state;
     return (
       <div className="selectionPage">
         <Button
@@ -82,7 +89,7 @@ class SelectionPage extends Component {
         <Navigation />
         <JDCard />
         <div className="cardsWrapper">
-          {CandidatesList.map((candidate, index) => (
+          {candidateList.map((candidate, index) => (
             <CandidateCard
               candidateObj={candidate}
               handleVouch={this.handleVouch}
