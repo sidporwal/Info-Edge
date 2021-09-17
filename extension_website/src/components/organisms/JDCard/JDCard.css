@@ -6,6 +6,8 @@
   margin: 75px 12px 20px;
   box-shadow: 0 0 20px 0 rgb(0 0 0 / 15%);
   position: relative;
+  border-left: 6px solid rgb(129, 216, 247);
+  border-radius: 10px;
 }
 
 .JDCardImgWrap {

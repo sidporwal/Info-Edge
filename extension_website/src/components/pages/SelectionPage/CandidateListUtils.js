@@ -1,7 +1,7 @@
 export const fetchConnectionsList = () => {
   return new Promise((resolve, reject) => {
     const intervalId = setInterval(() => {
-      fetch("http://10.120.9.102:8081/linkedIn/connection/fetch", {
+      fetch("http://10.120.9.102:5556/linkedIn/connection/fetch", {
         method: "GET",
         headers: {
           Token: localStorage.getItem("userMail"),

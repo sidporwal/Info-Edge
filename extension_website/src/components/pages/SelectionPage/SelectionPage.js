@@ -6,6 +6,7 @@ import ProgressSection from "../../organisms/ProgressSection";
 import Navigation from "../../molecules/Navigation/Navigation";
 import Button from "../../atoms/Button";
 import JDCard from "../../organisms/JDCard";
+import AlertMsg from "../../molecules/AlertMsg";
 
 import { fetchConnectionsList } from "./CandidateListUtils";
 import routeConfig from "../../../constants/routeConfig";
@@ -17,6 +18,8 @@ class SelectionPage extends Component {
     super(props);
     this.state = {
       vouchList: [],
+      jDs: [],
+      isJDLoading: true,
       candidateList: [],
     };
   }
@@ -26,6 +29,22 @@ class SelectionPage extends Component {
       this.setState({ candidateList });
     });
   }
+
+  componentDidMount = () => {
+    fetch("http://10.120.9.102:5556/job/all", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ isJDLoading: false, jDs: data });
+      })
+      .catch((err) => {
+        this.setState({ isJDLoading: true });
+        console.log(err);
+      });
+  };
 
   containsObject = (obj, array) => {
     var i;
@@ -72,9 +91,10 @@ class SelectionPage extends Component {
   };
 
   render = () => {
-    const { vouchList, candidateList } = this.state;
+    const { vouchList, jDs, isJDLoading, candidateList } = this.state;
     return (
       <div className="selectionPage">
+        <AlertMsg />
         <Button
           btnText="Go to Track Page"
           cntrClass="navBtn selectionNavBtn"
@@ -87,7 +107,7 @@ class SelectionPage extends Component {
         />
         <ProgressSection />
         <Navigation />
-        <JDCard />
+        <JDCard jobDetailsObj={jDs} isJDLoading={isJDLoading} />
         <div className="cardsWrapper">
           {candidateList.map((candidate, index) => (
             <CandidateCard

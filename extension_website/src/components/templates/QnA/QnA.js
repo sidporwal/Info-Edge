@@ -8,6 +8,7 @@ class QnA extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      email: props.candidateObj.profileUrl,
       strongRecommendation: {},
       jobSeeking: {},
       refereeName: {},
@@ -15,21 +16,38 @@ class QnA extends Component {
   }
 
   handleChipClick = (stateName, label) => {
-    const selectedValue = get(this, `state[${stateName}.${label}]`);
-    const changeObj = { [`${label}`]: !selectedValue };
+    // const selectedValue = get(this, `state[${stateName}.value]`);
+    const changeObj = { [`${"value"}`]: `${label}` };
 
     // Fill in state only when some state is set else set object empty
-    if (!selectedValue) {
-      this.setState({
-        [`${stateName}`]: {
-          ...changeObj,
-        },
-      });
-    } else {
-      this.setState({
-        [`${stateName}`]: {},
-      });
-    }
+    // if (!selectedValue) {
+    this.setState({
+      [`${stateName}`]: {
+        ...changeObj,
+      },
+    });
+
+    // } else {
+    //   this.setState({
+    //     [`${stateName}`]: {},
+    //   });
+    // }
+
+    const postObj = {
+      ...this.state,
+      [`${stateName}`]: {
+        ...changeObj,
+      },
+    };
+
+    this.props.handleChange(postObj);
+
+    // this.props.handleChange({
+    //   ...this.state,
+    //   [`${stateName}`]: {
+    //     ...changeObj,
+    //   },
+    // });
   };
 
   render = () => {
@@ -42,7 +60,11 @@ class QnA extends Component {
           <p className="ques">How strong is your recommendation?</p>
           <Chip
             variant="outlined"
-            color={get(strongRecommendation, "top20") ? "secondary" : "default"}
+            color={
+              get(strongRecommendation, "value") === "top20"
+                ? "secondary"
+                : "default"
+            }
             size="small"
             label="Top 20%"
             clickable
@@ -53,7 +75,11 @@ class QnA extends Component {
           />
           <Chip
             variant="outlined"
-            color={get(strongRecommendation, "top5") ? "secondary" : "default"}
+            color={
+              get(strongRecommendation, "value") === "top5"
+                ? "secondary"
+                : "default"
+            }
             size="small"
             label="Top 5%"
             clickable
@@ -62,7 +88,11 @@ class QnA extends Component {
           />
           <Chip
             variant="outlined"
-            color={get(strongRecommendation, "solid") ? "secondary" : "default"}
+            color={
+              get(strongRecommendation, "value") === "solid"
+                ? "secondary"
+                : "default"
+            }
             size="small"
             label="Solid Individual"
             clickable
@@ -77,7 +107,7 @@ class QnA extends Component {
           <p className="ques">Is this person looking out for a job?</p>
           <Chip
             variant="outlined"
-            color={get(jobSeeking, "yes") ? "secondary" : "default"}
+            color={get(jobSeeking, "value") === "yes" ? "secondary" : "default"}
             size="small"
             label="Yes"
             clickable
@@ -86,7 +116,7 @@ class QnA extends Component {
           />
           <Chip
             variant="outlined"
-            color={get(jobSeeking, "no") ? "secondary" : "default"}
+            color={get(jobSeeking, "value") === "no" ? "secondary" : "default"}
             size="small"
             label="No"
             clickable
@@ -95,7 +125,9 @@ class QnA extends Component {
           />
           <Chip
             variant="outlined"
-            color={get(jobSeeking, "dontKnow") ? "secondary" : "default"}
+            color={
+              get(jobSeeking, "value") === "dontKnow" ? "secondary" : "default"
+            }
             size="small"
             label="Don't know"
             clickable
@@ -108,7 +140,9 @@ class QnA extends Component {
           <p className="ques">Can we use your name while contacting them?</p>
           <Chip
             variant="outlined"
-            color={get(refereeName, "yes") ? "secondary" : "default"}
+            color={
+              get(refereeName, "value") === "yes" ? "secondary" : "default"
+            }
             size="small"
             label="Yes"
             clickable
@@ -117,7 +151,7 @@ class QnA extends Component {
           />
           <Chip
             variant="outlined"
-            color={get(refereeName, "no") ? "secondary" : "default"}
+            color={get(refereeName, "value") === "no" ? "secondary" : "default"}
             size="small"
             label="No"
             clickable
