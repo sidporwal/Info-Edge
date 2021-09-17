@@ -20,8 +20,15 @@ const SideModal = ({
   wrapperClass,
   submitBtnText,
   rewardsBalance,
+  trackDetails,
+  handleRedeemClick,
 }) => {
-  const rewardsRedeemed = 40;
+  const rewardsRedeemed =
+    get(trackDetails, "ACCEPTED.length") * 100 +
+    get(trackDetails, "INTERVIEWED.length") * 1000 +
+    get(trackDetails, "JOINED.length") * 10000 +
+    get(trackDetails, "REFERRED.length") * 10;
+
   return (
     isVisible && (
       <div className={cx("sideModal", wrapperClass)}>
@@ -34,38 +41,46 @@ const SideModal = ({
             <div className="amountDiv">
               <div className="amountWrapper">
                 <p className="amount trackAmt">Rs 100</p>
-                <p className="bold">+</p>
+                <p className="bold">{`${"->"}`} </p>
                 <p className="amountTitle">for making LinkedIn accessible</p>
               </div>
               <p className="plus">+</p>
               <div className="amountWrapper">
                 <p className="amount trackAmt">Rs 10</p>
-                <p className="bold">+</p>
+                <p className="bold">{`x  ${
+                  get(trackDetails, "REFERRED.length") || 0
+                }`}</p>
                 <p className="amountTitle">for every vouched candidate</p>
               </div>
               <p className="plus">+</p>
               <div className="amountWrapper">
                 <p className="amount trackAmt">Rs 100</p>
-                <p className="bold">+</p>
+                <p className="bold">{`x  ${
+                  get(trackDetails, "ACCEPTED.length") || 0
+                }`}</p>
                 <p className="amountTitle">for accepted candidate</p>
               </div>
               <p className="plus">+</p>
               <div className="amountWrapper">
                 <p className="amount trackAmt">Rs 1000</p>
-                <p className="bold">+</p>
+                <p className="bold">{`x  ${
+                  get(trackDetails, "INTERVIEWED.length") || 0
+                }`}</p>
                 <p className="amountTitle">for interviewed candidate</p>
               </div>
               <p className="plus">+</p>
               <div className="amountWrapper">
                 <p className="amount trackAmt">Rs 10,000</p>
-                <p className="bold">+</p>
+                <p className="bold">{`x  ${
+                  get(trackDetails, "JOINED.length") || 0
+                }`}</p>
                 <p className="amountTitle">for successfully joined candidate</p>
               </div>
             </div>
             <div className="amountDiv">
               <div className="amountWrapper marginBottom_20">
                 <p className="amount trackAmt colorBlack">
-                  Rs {rewardsRedeemed}
+                  Rs {Math.abs(rewardsBalance - rewardsRedeemed)}
                 </p>
                 <p className="bold"> {`${"->"}`} </p>
                 <p className="amountTitle">already redeemed value</p>
@@ -76,12 +91,7 @@ const SideModal = ({
                 <p className="amountTitle">amount to be redeemed</p>
               </div>
             </div>
-            <button
-              className={"submitBtn"}
-              onClick={() => {
-                console.log("Redeem Clicked");
-              }}
-            >
+            <button className={"submitBtn"} onClick={handleRedeemClick}>
               <AccountBalanceWalletIcon className="marginRight_6" />
               Redeem
             </button>
@@ -158,8 +168,10 @@ SideModal.propTypes = {
   rewardsBalance: PropTypes.number,
   wrapperClass: PropTypes.string,
   submit: PropTypes.string,
+  trackDetails: PropTypes.object,
   vouchList: PropTypes.array,
   handleSubmitClick: PropTypes.func,
+  handleRedeemClick: PropTypes.func,
 };
 
 SideModal.defaultProps = {
@@ -171,7 +183,9 @@ SideModal.defaultProps = {
   wrapperClass: "",
   submitBtnText: "",
   vouchList: [],
+  trackDetails: {},
   handleSubmitClick: () => {},
+  handleRedeemClick: () => {},
 };
 
 export default SideModal;

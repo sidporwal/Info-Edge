@@ -5,6 +5,7 @@ import TrackTemplate from "../../templates/TrackTemplate";
 import Button from "../../atoms/Button";
 import SideModal from "../../templates/SideModal";
 import get from "../../../utils/get";
+import { fetchReferralStatus } from "./TrackPageUtils";
 
 import routeConfig from "../../../constants/routeConfig";
 
@@ -16,11 +17,15 @@ class TrackPage extends Component {
     this.state = {
       isVisible: false,
       rewardsBalance: 0,
+      trackDetails: [],
     };
   }
 
   componentDidMount = () => {
     this.getProfileDetails();
+    fetchReferralStatus().then((res) => {
+      this.setState({ trackDetails: res.data });
+    });
   };
 
   getProfileDetails = () => {
@@ -49,8 +54,25 @@ class TrackPage extends Component {
     history.push(routeConfig.selection);
   };
 
+  handleRedeemClick = () => {
+    fetch("http://10.120.9.102:5556/user/rewards/redeem", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        token: localStorage.getItem("userMail"),
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ rewardsBalance: get(data, "data.rewardsBalance") });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   render = () => {
-    const { isVisible, rewardsBalance } = this.state;
+    const { isVisible, rewardsBalance, trackDetails } = this.state;
     return (
       <div className="TrackPage">
         <SideModal
@@ -66,6 +88,8 @@ class TrackPage extends Component {
           isVisible={this.state.isVisible}
           isTrackPage
           rewardsBalance={rewardsBalance}
+          trackDetails={trackDetails}
+          handleRedeemClick={this.handleRedeemClick}
         />
         <Button
           btnText="Manage Wallet"
