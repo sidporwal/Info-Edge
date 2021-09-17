@@ -5,6 +5,7 @@ const sendDataUsingAPIs = ({ from, subject, data }) => {
   chrome.runtime.sendMessage({ from, subject, data });
 };
 
+let currentUserDeatils;
 const showProgress = ({ base, completed }) => {
   const documentX = document.getElementById("dibsFrame").contentDocument;
   documentX.getElementsByClassName("RSPBprogression")[0].style = `width: ${
@@ -140,6 +141,7 @@ const getUserInfoFrame = async () => {
   document.body.appendChild(iframe);
   try {
     const data = await fetchUserInfo();
+    currentUserDeatils = data;
     // API Post Current Use
     sendDataUsingAPIs({ from: "content", subject: "userInfo", data });
   } catch (error) {
@@ -344,7 +346,7 @@ const getBtnState = (state) => {
         documentX.getElementById("getListBtn").innerText =
           "Get list of LinkedIn connections to vouch";
         documentX.getElementById("getListBtn").addEventListener("click", () => {
-          window.open("https://www.bigshyft.com/");
+          window.open(`http://localhost:3000?mail=${currentUserDeatils.mail}`);
         });
         documentX.getElementById("getListBtn").style =
           "opacity: 1; cursor: pointer;";
