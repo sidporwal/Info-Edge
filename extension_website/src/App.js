@@ -1,30 +1,20 @@
 import { PureComponent } from "react";
-import { Switch, withRouter, Route } from "react-router-dom";
-import routeConfig from "./constants/routeConfig";
-import HomePage from "../src/components/pages/HomePage";
-import AboutUsPage from "../src/components/pages/AboutUsPage";
-import SelectionPage from "../src/components/pages/SelectionPage";
-import ReviewPage from "../src/components/pages/ReviewPage";
-import TrackPage from "../src/components/pages/TrackPage";
+import { withRouter } from "react-router-dom";
+import Routes from "./Routes";
+
 // import AutoLogin from "../src/components/pages/AutoLogin";
 
 class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {};
+    this.isLoggedIn = !!localStorage.getItem("userMail");
   }
 
   render = () => {
     return (
       <div style={{ backgroundColor: "ghostwhite", minHeight: "100vh" }}>
-        <Switch>
-          <Route path={routeConfig.about} exact component={AboutUsPage} />
-          <Route path={routeConfig.selection} exact component={SelectionPage} />
-          <Route path={routeConfig.review} exact component={ReviewPage} />
-          <Route path={routeConfig.track} exact component={TrackPage} />
-          {/* <Route path={routeConfig.autoLogin} exact component={AutoLogin} /> */}
-          <Route path={routeConfig.homepage} component={HomePage} />
-        </Switch>
+        <Routes isLoggedIn={this.isLoggedIn} />
       </div>
     );
   };
