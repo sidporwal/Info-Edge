@@ -24,12 +24,6 @@ class SelectionPage extends Component {
     };
   }
 
-  componentWillMount() {
-    fetchConnectionsList().then((candidateList) => {
-      this.setState({ candidateList });
-    });
-  }
-
   componentDidMount = () => {
     fetch("http://10.120.9.102:5556/job/all", {
       headers: {
@@ -39,6 +33,9 @@ class SelectionPage extends Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({ isJDLoading: false, jDs: data });
+        fetchConnectionsList().then((candidateList) => {
+          this.setState({ candidateList });
+        });
       })
       .catch((err) => {
         this.setState({ isJDLoading: true });

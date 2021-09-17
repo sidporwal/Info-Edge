@@ -34,21 +34,6 @@ class ReviewPage extends Component {
   };
 
   submitCandidates = () => {
-    // const postObj = [
-    //   {
-    //     email: "abc@gmail.com",
-    //     jobSeeking: {
-    //       value: "dont know",
-    //     },
-    //     refereeName: {
-    //       value: "yes",
-    //     },
-    //     strongRecommendation: {
-    //       value: "solid",
-    //     },
-    //   },
-    // ];
-
     async function postData(url = "", data = this.formData) {
       const response = await fetch(url, {
         method: "POST",
@@ -76,21 +61,15 @@ class ReviewPage extends Component {
   };
 
   handleChange = (value) => {
-    // console.log(
-    //   this.formData.findIndex((profile) => profile.email === value.email)
-    // );
-
     this.formData.splice(
       this.formData.findIndex((a) => a.email === value.email),
       1
     );
-
     this.formData = [...this.formData, value];
   };
 
   render = () => {
     const { vouchList } = this.state;
-
     return (
       <div className="ReviewPage">
         <SideModal
