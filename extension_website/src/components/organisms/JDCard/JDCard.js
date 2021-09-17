@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import DialogSelect from "../../templates/DialogSelect";
 import JDDetails from "./JDUtils";
 import get from "../../../utils/get";
@@ -14,6 +15,7 @@ class JDCard extends Component {
 
   handleChangeSelection = (changedIndex = 0) => {
     this.setState({ selectedIndex: changedIndex });
+    this.props.handleChangeJD(changedIndex);
   };
 
   getFullJD = (jobDetailsObj, isJDLoading, selectedIndex) => {
@@ -86,5 +88,9 @@ class JDCard extends Component {
     );
   };
 }
+
+JDCard.propTypes = {
+  handleChangeJD: PropTypes.func.isRequired,
+};
 
 export default JDCard;

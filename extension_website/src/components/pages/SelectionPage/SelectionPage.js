@@ -21,6 +21,7 @@ class SelectionPage extends Component {
       jDs: [],
       isJDLoading: true,
       candidateList: [],
+      selectedJD: null,
     };
   }
 
@@ -32,10 +33,16 @@ class SelectionPage extends Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        this.setState({ isJDLoading: false, jDs: data });
-        fetchConnectionsList().then((candidateList) => {
-          this.setState({ candidateList });
+        this.setState({
+          isJDLoading: false,
+          jDs: data,
+          selectedJD: data.jobs[0],
         });
+        fetchConnectionsList({ premiumJobId: data.jobs[0].premiumJobId }).then(
+          (candidateList) => {
+            this.setState({ candidateList });
+          }
+        );
       })
       .catch((err) => {
         this.setState({ isJDLoading: true });
@@ -75,16 +82,25 @@ class SelectionPage extends Component {
   };
 
   handleSubmitClick = () => {
-    const { vouchList } = this.state;
+    const { vouchList, selectedJD } = this.state;
 
     this.props.history.push(routeConfig.review, {
-      state: { vouchList },
+      state: { vouchList, selectedJD },
     });
   };
 
   handleNavBtnClick = () => {
     const { history } = this.props;
     history.push(routeConfig.track);
+  };
+
+  handleChangeJD = (changedIndex) => {
+    this.setState({ selectedJD: this.state.jDs.jobs[changedIndex] });
+    fetchConnectionsList({
+      premiumJobId: this.state.jDs.jobs[changedIndex].premiumJobId,
+    }).then((candidateList) => {
+      this.setState({ candidateList });
+    });
   };
 
   render = () => {
@@ -105,7 +121,11 @@ class SelectionPage extends Component {
         />
         <ProgressSection />
         <Navigation />
-        <JDCard jobDetailsObj={jDs} isJDLoading={isJDLoading} />
+        <JDCard
+          jobDetailsObj={jDs}
+          isJDLoading={isJDLoading}
+          handleChangeJD={this.handleChangeJD}
+        />
         <div className="cardsWrapper">
           {candidateList.map((candidate, index) => (
             <CandidateCard

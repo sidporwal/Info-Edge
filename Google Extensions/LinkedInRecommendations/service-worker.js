@@ -17,7 +17,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.from === "content" && msg.subject === "userInfo") {
     currentUserInfo = msg.data;
     console.log(msg.data);
-    fetch("http://10.120.9.102:8081/auth/login", {
+    fetch("http://10.120.9.102:5556/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +34,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.from === "content" && msg.subject === "connectionsInfo") {
     console.log(currentUserInfo.mail);
     console.log(msg.data);
-    fetch("http://10.120.9.102:8081/linkedIn/connections/save/profile", {
+    fetch("http://10.120.9.102:5556/linkedIn/connections/save/profile", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     console.log(currentUserInfo.mail);
     console.log(msg.data);
     fetch(
-      "http://10.120.9.102:8081/linkedIn/connections/save/profile/contacts",
+      "http://10.120.9.102:5556/linkedIn/connections/save/profile/contacts",
       {
         method: "POST",
         headers: {

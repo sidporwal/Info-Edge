@@ -4,7 +4,7 @@ import Navigation from "../../molecules/Navigation/Navigation";
 import ReviewBody from "../../templates/ReviewBody";
 import get from "../../../utils/get";
 import routeConfig from "../../../constants/routeConfig";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 import "./ReviewPage.css";
 
@@ -24,7 +24,7 @@ class ReviewPage extends Component {
       this.formData = [
         ...this.formData,
         {
-          email: `${vouchList[i].profileUrl}`,
+          email: `${vouchList[i].email}`,
           strongRecommendation: {},
           jobSeeking: {},
           refereeName: {},
@@ -33,20 +33,25 @@ class ReviewPage extends Component {
     }
   };
 
-  submitCandidates = () => {
-    async function postData(url = "", data = this.formData) {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          token: "anshul.chauhan@gmail.com",
-        },
-        body: JSON.stringify(data),
-      });
-      return response.json();
-    }
+  postData = async (url = "", data = this.formData) => {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        token: localStorage.getItem("userMail"),
+      },
+      body: JSON.stringify(data),
+    });
+    return response.json();
+  };
 
-    postData("http://10.120.9.102:5556/referral/refer/job/123", this.formData)
+  submitCandidates = () => {
+    const { location } = this.props;
+    const { premiumJobId } = location.state.state.selectedJD;
+    this.postData(
+      `http://10.120.9.102:5556/referral/refer/job/${premiumJobId}`,
+      this.formData
+    )
       .then((data) => {
         this.props.history.push(routeConfig.track);
         console.log("Candidates succesfully vouched.");
@@ -85,8 +90,8 @@ class ReviewPage extends Component {
   };
 }
 
-ReviewPage.propTypes = {};
-
-ReviewPage.defaultProps = {};
+ReviewPage.propTypes = {
+  location: PropTypes.object.isRequired,
+};
 
 export default ReviewPage;
