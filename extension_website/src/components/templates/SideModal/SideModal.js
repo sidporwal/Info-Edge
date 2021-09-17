@@ -21,6 +21,7 @@ const SideModal = ({
   submitBtnText,
   rewardsBalance,
 }) => {
+  const rewardsRedeemed = 40;
   return (
     isVisible && (
       <div className={cx("sideModal", wrapperClass)}>
@@ -44,6 +45,12 @@ const SideModal = ({
               </div>
               <p className="plus">+</p>
               <div className="amountWrapper">
+                <p className="amount trackAmt">Rs 100</p>
+                <p className="bold">+</p>
+                <p className="amountTitle">for accepted candidate</p>
+              </div>
+              <p className="plus">+</p>
+              <div className="amountWrapper">
                 <p className="amount trackAmt">Rs 1000</p>
                 <p className="bold">+</p>
                 <p className="amountTitle">for interviewed candidate</p>
@@ -58,15 +65,13 @@ const SideModal = ({
             <div className="amountDiv">
               <div className="amountWrapper marginBottom_20">
                 <p className="amount trackAmt colorBlack">
-                  Rs {rewardsBalance}
+                  Rs {rewardsRedeemed}
                 </p>
                 <p className="bold"> {`${"->"}`} </p>
                 <p className="amountTitle">already redeemed value</p>
               </div>
               <div className="amountWrapper">
-                <p className="amount trackAmt">
-                  Rs {get(vouchList, "length") * 10}
-                </p>
+                <p className="amount trackAmt">Rs {rewardsBalance}</p>
                 <p className="bold"> {`${"->"}`} </p>
                 <p className="amountTitle">amount to be redeemed</p>
               </div>
@@ -164,7 +169,7 @@ SideModal.defaultProps = {
   heading: "",
   rewardsBalance: 0,
   wrapperClass: "",
-  submit: "Submit",
+  submitBtnText: "",
   vouchList: [],
   handleSubmitClick: () => {},
 };

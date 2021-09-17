@@ -101,6 +101,7 @@ class SelectionPage extends Component {
           vouchList={vouchList}
           handleSubmitClick={this.handleSubmitClick}
           heading={`${vouchList.length} people selected`}
+          submitBtnText="Submit"
         />
         <ProgressSection />
         <Navigation />
