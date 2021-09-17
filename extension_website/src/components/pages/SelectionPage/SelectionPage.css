@@ -11,7 +11,7 @@
 
 .navigation {
   display: flex;
-  height: 50px;
+  /* height: 50px; */
   width: 72%;
   padding: 8px 6px 20px 12px;
   /* border-bottom: 4px solid black;
@@ -130,11 +130,29 @@
 }
 
 .cardsWrapper {
-  margin: 100px 0 0 0;
+  margin: 90px 0 0 0;
   width: 72%;
-  padding-left: 4%;
+  padding-left: 18px;
 }
 
 .amrginTop_10 {
   margin-top: 10px;
+}
+
+div > .selectionNavBtn {
+  /* right: 37%; */
+  left: -8%;
+  top: 114px;
+  height: 42px;
+  width: 210px;
+  padding: 8px 30px;
+  background-color: #45a9cc;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+div > .selectionNavBtn:hover {
+  background-color: rgb(129, 216, 247, 0.4);
+  border: 2px solid #fff;
+  color: #fff;
 }

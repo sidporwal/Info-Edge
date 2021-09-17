@@ -4,6 +4,7 @@ import CandidateCard from "../../organisms/CandidateCard";
 import SideModal from "../../templates/SideModal";
 import ProgressSection from "../../organisms/ProgressSection";
 import Navigation from "../../molecules/Navigation/Navigation";
+import Button from "../../atoms/Button";
 
 import CandidatesList from "./CandidateListUtils";
 import routeConfig from "../../../constants/routeConfig";
@@ -52,15 +53,25 @@ class SelectionPage extends Component {
   handleSubmitClick = () => {
     const { vouchList } = this.state;
 
-    this.props.history.push(routeConfig.track, {
+    this.props.history.push(routeConfig.review, {
       state: { vouchList },
     });
+  };
+
+  handleNavBtnClick = () => {
+    const { history } = this.props;
+    history.push(routeConfig.track);
   };
 
   render = () => {
     const { vouchList } = this.state;
     return (
       <div className="selectionPage">
+        <Button
+          btnText="Go to Track Page"
+          cntrClass="navBtn selectionNavBtn"
+          handleClick={this.handleNavBtnClick}
+        />
         <SideModal
           vouchList={vouchList}
           handleSubmitClick={this.handleSubmitClick}

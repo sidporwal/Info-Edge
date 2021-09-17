@@ -1,4 +1,28 @@
-.trackPage {
-  height: 100vh;
-  background: ghostwhite;
+.TrackPage {
+  position: relative;
+}
+
+.navBtn {
+  height: 54px;
+  display: block;
+  width: 300px;
+  padding: 15px 30px;
+  border-radius: 50px;
+  -webkit-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 10px 12px rgb(0 0 0 / 15%);
+  border: 2px solid #000;
+  background-color: #fafafc;
+  position: absolute;
+  top: 28px;
+  right: 16px;
+}
+
+.navBtn:hover {
+  background-color: #ffffff69;
+  border: 2px solid #ffffff69;
 }
