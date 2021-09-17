@@ -16,49 +16,72 @@ class JDCard extends Component {
     this.setState({ selectedIndex: changedIndex });
   };
 
+  getFullJD = (jobDetailsObj, isJDLoading, selectedIndex) => {
+    if (!isJDLoading) {
+      const jd = jobDetailsObj.jobs[selectedIndex];
+      return { ...jd, ...jobDetailsObj.companies[jd.companyId] };
+    }
+    return {};
+  };
+
   render = () => {
     const { selectedIndex } = this.state;
-    const selectedJD = JDDetails[selectedIndex];
+    const { jobDetailsObj, isJDLoading } = this.props;
+    const selectedJD = this.getFullJD(
+      jobDetailsObj,
+      isJDLoading,
+      selectedIndex
+    );
 
     return (
       <div className="JDCard">
-        <div className="JDCardImgWrap">
-          <img
-            src={selectedJD.companyLogoUrl}
-            height="40"
-            width="40"
-            alt={selectedJD.companyName}
-          />
-          <div className="JDCardDetailsWrap">
-            <p className="JDCompanyName">{selectedJD.companyName}</p>
-            <p className="JDCompanyLocation">{selectedJD.companyLocation}</p>
-          </div>
-          <p className="jobID">Job ID : {selectedJD.jobId}</p>
-        </div>
+        {isJDLoading ? (
+          <div>Loading</div>
+        ) : (
+          <>
+            <div className="JDCardImgWrap">
+              <img
+                src={selectedJD.companyLogoUrl}
+                height="40"
+                width="40"
+                alt={selectedJD.company}
+              />
+              <div className="JDCardDetailsWrap">
+                <p className="JDCompanyName">{selectedJD.company}</p>
+                <p className="JDCompanyLocation">
+                  {selectedJD.companyLocation}
+                </p>
+              </div>
+              <p className="jobID">Job ID : {selectedJD.jobRoleId}</p>
+            </div>
 
-        <p className="JDDetails">
-          Job Role : <span className="colorShadow">{selectedJD.jobRole}</span>
-        </p>
-        <p className="JDDetails">
-          Job Status : <span className="colorShadow">{selectedJD.status}</span>
-        </p>
-        <p className="JDDetails">
-          Experience :{" "}
-          <span className="colorShadow">
-            {selectedJD.minExperience} - {selectedJD.maxExperience}
-          </span>
-        </p>
-        <p className="JDDetails">
-          Expected CTC :{" "}
-          <span className="colorShadow">
-            {selectedJD.minCTC}{" "}
-            {!!get(selectedJD, "maxCTC") && `- ${selectedJD.maxCTC}`}
-          </span>
-        </p>
-        <DialogSelect
-          JDDetails={JDDetails}
-          handleSelect={this.handleChangeSelection}
-        />
+            <p className="JDDetails">
+              Job Role :{" "}
+              <span className="colorShadow">{selectedJD.jobRole}</span>
+            </p>
+            <p className="JDDetails">
+              Job Status :{" "}
+              <span className="colorShadow">{selectedJD.status}</span>
+            </p>
+            <p className="JDDetails">
+              Experience :{" "}
+              <span className="colorShadow">
+                {selectedJD.minExperience} - {selectedJD.maxExperience}
+              </span>
+            </p>
+            <p className="JDDetails">
+              Expected CTC :{" "}
+              <span className="colorShadow">
+                {selectedJD.minCTC}{" "}
+                {!!get(selectedJD, "maxCTC") && `- ${selectedJD.maxCTC}`}
+              </span>
+            </p>
+            <DialogSelect
+              JDDetails={jobDetailsObj.jobs}
+              handleSelect={this.handleChangeSelection}
+            />
+          </>
+        )}
       </div>
     );
   };

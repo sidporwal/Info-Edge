@@ -20,3 +20,8 @@
   font-size: 18px;
   font-weight: 600;
 }
+
+div > .css-1kty9di-MuiFormLabel-root-MuiInputLabel-root {
+  padding: 0 4px 0 0;
+  background-color: #fff;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 // import PropTypes from "prop-types";
+import axios from "axios";
 import CandidateCard from "../../organisms/CandidateCard";
 import SideModal from "../../templates/SideModal";
 import ProgressSection from "../../organisms/ProgressSection";
@@ -17,8 +18,26 @@ class SelectionPage extends Component {
     super(props);
     this.state = {
       vouchList: [],
+      jDs: [],
+      isJDLoading: true,
     };
   }
+
+  componentDidMount = () => {
+    fetch("http://10.120.9.102:8081/job/all", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ isJDLoading: false, jDs: data });
+      })
+      .catch((err) => {
+        this.setState({ isJDLoading: true });
+        console.log(err);
+      });
+  };
 
   containsObject = (obj, array) => {
     var i;
@@ -65,7 +84,7 @@ class SelectionPage extends Component {
   };
 
   render = () => {
-    const { vouchList } = this.state;
+    const { vouchList, jDs, isJDLoading } = this.state;
     return (
       <div className="selectionPage">
         <Button
@@ -80,7 +99,7 @@ class SelectionPage extends Component {
         />
         <ProgressSection />
         <Navigation />
-        <JDCard />
+        <JDCard jobDetailsObj={jDs} isJDLoading={isJDLoading} />
         <div className="cardsWrapper">
           {CandidatesList.map((candidate, index) => (
             <CandidateCard
