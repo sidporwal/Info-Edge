@@ -26,15 +26,47 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       body: JSON.stringify(currentUserInfo),
     })
       .then((res) => res.json())
-      .then((json) => console.log(json));
+      .then((json) => console.log(json))
+      .catch((error) => {
+        console.error(error);
+      });
   }
   if (msg.from === "content" && msg.subject === "connectionsInfo") {
     console.log(currentUserInfo.mail);
     console.log(msg.data);
+    fetch("http://10.120.9.102:8081/linkedIn/connections/save/profile", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Token: currentUserInfo.mail,
+      },
+      body: JSON.stringify(msg.data),
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json))
+      .catch((error) => {
+        console.error(error);
+      });
   }
   if (msg.from === "content" && msg.subject === "connectionsMailInfo") {
     console.log(currentUserInfo.mail);
     console.log(msg.data);
+    fetch(
+      "http://10.120.9.102:8081/linkedIn/connections/save/profile/contacts",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Token: currentUserInfo.mail,
+        },
+        body: JSON.stringify(msg.data),
+      }
+    )
+      .then((res) => res.json())
+      .then((json) => console.log(json))
+      .catch((error) => {
+        console.error(error);
+      });
   }
 });
 
