@@ -1,0 +1,15 @@
+.ReviewBody {
+  padding: 20px;
+  width: 72%;
+}
+
+.reviewHeading {
+  font-size: 24px;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.reviewCardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}

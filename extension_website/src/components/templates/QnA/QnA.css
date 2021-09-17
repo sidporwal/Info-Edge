@@ -1,0 +1,13 @@
+div > .chips {
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.quesCntr {
+  margin: 0 0 6px 0;
+}
+
+.ques {
+  margin-bottom: 4px;
+  font-size: 13px;
+}

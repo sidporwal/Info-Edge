@@ -1,0 +1,48 @@
+.ReviewCardCntr {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px 0 rgb(0 0 0 / 15%);
+  border-radius: 8px;
+  margin: 0 32px 32px 10px;
+  padding: 10px;
+  max-width: 320px;
+  position: relative;
+}
+
+.imgWrapper {
+  display: flex;
+  align-items: baseline;
+}
+
+.userLogo {
+  border-radius: 8px;
+}
+
+.ReviewCardUsername {
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0 0 6px 6px;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #5518ab;
+  max-width: 210px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.PreviewEmail {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 11px;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #626866;
+}
+
+.linkedinIcon {
+  margin-left: 4px;
+  position: relative;
+  bottom: -2px;
+}

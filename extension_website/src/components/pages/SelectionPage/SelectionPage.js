@@ -52,7 +52,7 @@ class SelectionPage extends Component {
   handleSubmitClick = () => {
     const { vouchList } = this.state;
 
-    this.props.history.push(routeConfig.track, {
+    this.props.history.push(routeConfig.review, {
       state: { vouchList },
     });
   };
