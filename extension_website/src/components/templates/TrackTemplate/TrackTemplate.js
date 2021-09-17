@@ -3,6 +3,7 @@ import InterView from "../../../assets/images/png/Interview.png";
 import Joined from "../../../assets/images/png/Joined.png";
 import ReferIcon from "../../../assets/images/jpg/ReferIcon.jpg";
 import Accepted from "../../../assets/images/jpg/Accepted.jpeg";
+import { fetchReferralStatus } from "../../pages/TrackPage/TrackPageUtils";
 import "./TrackTemplate.css";
 
 const TrackCard = ({ text, count, image, handleTabClick }) => {
@@ -22,26 +23,19 @@ const TRACK_UTIL = [
   { text: "JOINED", picture: Joined },
 ];
 
-const TRACKDETAILS = {
-  REFERRED: [
-    { name: "Shubham Gupta", companyVouched: "InfoEdge" },
-    { name: "Shubham Gupta", companyVouched: "InfoEdge" },
-    { name: "Shubham Gupta", companyVouched: "InfoEdge" },
-    { name: "Shubham Gupta", companyVouched: "InfoEdge" },
-    { name: "Shubham Gupta", companyVouched: "InfoEdge" },
-    { name: "Shubham Gupta", companyVouched: "InfoEdge" },
-  ],
-  ACCEPTED: [{ name: "Shubham Singh", companyVouched: "InfoEdge" }],
-  INTERVIEWED: [{ name: "Shubham Kumar", companyVouched: "InfoEdge" }],
-  JOINED: [{ name: "Shubham Sharma", companyVouched: "InfoEdge" }],
-};
-
 class TrackTemplate extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedTab: "REFERRED",
+      trackDetails: { REFERRED: [], ACCEPTED: [], INTERVIEWED: [], JOINED: [] },
     };
+  }
+
+  componentDidMount() {
+    fetchReferralStatus().then((res) => {
+      this.setState({ trackDetails: res.data });
+    });
   }
 
   handleTabClick = (value = "REFERRED") => {
@@ -49,7 +43,7 @@ class TrackTemplate extends Component {
   };
 
   render = () => {
-    const { selectedTab } = this.state;
+    const { selectedTab, trackDetails } = this.state;
 
     return (
       <div className="TrackTemplate">
@@ -58,7 +52,7 @@ class TrackTemplate extends Component {
             {TRACK_UTIL.map((trackObj, index) => (
               <TrackCard
                 text={trackObj.text}
-                count={TRACKDETAILS[trackObj.text].length}
+                count={trackDetails[trackObj.text].length}
                 image={trackObj.picture}
                 handleTabClick={this.handleTabClick}
                 key={`TrackCard_${index + 1}`}
@@ -75,11 +69,11 @@ class TrackTemplate extends Component {
               </tr>
             </thead>
             <tbody>
-              {TRACKDETAILS[selectedTab].map((candidate) => (
+              {trackDetails[selectedTab].map((candidate) => (
                 <tr className="trackRow ">
                   <td className="paddingLeft_8 width_50">{candidate.name}</td>
                   <td className="centreData width_50">
-                    {candidate.companyVouched}
+                    {candidate.companyName}
                   </td>
                 </tr>
               ))}

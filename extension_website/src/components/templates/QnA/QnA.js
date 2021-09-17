@@ -8,7 +8,7 @@ class QnA extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: props.candidateObj.profileUrl,
+      email: props.candidateObj.email,
       strongRecommendation: {},
       jobSeeking: {},
       refereeName: {},
