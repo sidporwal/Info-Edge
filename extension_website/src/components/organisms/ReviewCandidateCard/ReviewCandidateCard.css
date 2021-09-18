@@ -7,6 +7,15 @@
   padding: 10px;
   max-width: 320px;
   position: relative;
+  background-color: aliceblue;
+}
+
+.MuiChip-clickable {
+  background-color: azure;
+}
+
+.MuiChip-colorSecondary {
+  background-color: azure;
 }
 
 .imgWrapper {

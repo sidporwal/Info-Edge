@@ -3,9 +3,16 @@ import Tooltip from "@material-ui/core/Tooltip";
 import QnA from "../../templates/QnA";
 import LinkedIn from "../../../assets/images/png/linkedin.png";
 import getToolTipContent from "../../../utils/getToolTipContent";
+import ProfilePlaceholder from "../../../assets/images/svg/profilePlaceholder.svg";
 import "./ReviewCandidateCard.css";
 
 const ReviewCandidateCard = ({ candidateObj, handleChange }) => {
+  const _profileImgUrl =
+    candidateObj &&
+    candidateObj.profileImgUrl &&
+    candidateObj.profileImgUrl.includes("https:")
+      ? candidateObj.profileImgUrl
+      : ProfilePlaceholder;
   return (
     <div className="ReviewCardCntr">
       <Tooltip title={getToolTipContent(candidateObj.name)}>
@@ -13,7 +20,7 @@ const ReviewCandidateCard = ({ candidateObj, handleChange }) => {
       </Tooltip>
       <div className="imgWrapper">
         <img
-          src={candidateObj.profileImgUrl}
+          src={_profileImgUrl}
           alt={candidateObj.name}
           height="60"
           width="60"
