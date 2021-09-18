@@ -53,10 +53,10 @@ class CandidateCard extends Component {
             {candidateObj.occupation}
           </li>
           <li className="infoData">
-            <p className="link">
+            <a className="link" href={candidateObj.profileUrl}>
               <span className="tag">Profile Link : </span>
               {candidateObj.profileUrl}
-            </p>
+            </a>
           </li>
         </ul>
         <button
