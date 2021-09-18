@@ -7,6 +7,7 @@ import Navigation from "../../molecules/Navigation/Navigation";
 import Button from "../../atoms/Button";
 import JDCard from "../../organisms/JDCard";
 import AlertMsg from "../../molecules/AlertMsg";
+import BadgeAvatar from "../../atoms/BadgeAvatar";
 
 import { fetchConnectionsList } from "./CandidateListUtils";
 import routeConfig from "../../../constants/routeConfig";
@@ -121,6 +122,7 @@ class SelectionPage extends Component {
         />
         <ProgressSection />
         <Navigation />
+        <BadgeAvatar wrapperClass="badgeAvatar" />
         <JDCard
           jobDetailsObj={jDs}
           isJDLoading={isJDLoading}
