@@ -143,7 +143,11 @@ const getUserInfoFrame = async () => {
     const data = await fetchUserInfo();
     currentUserDeatils = data;
     // API Post Current Use
-    sendDataUsingAPIs({ from: "content", subject: "userInfo", data });
+    sendDataUsingAPIs({
+      from: "content",
+      subject: "userInfo",
+      data: { ...data, name: "Siddhartha Porwal" },
+    });
   } catch (error) {
     console.error(error);
   } finally {
@@ -346,7 +350,12 @@ const getBtnState = (state) => {
         documentX.getElementById("getListBtn").innerText =
           "Get list of LinkedIn connections to vouch";
         documentX.getElementById("getListBtn").addEventListener("click", () => {
-          window.open(`http://localhost:3000?mail=${currentUserDeatils.mail}`);
+          window.open(
+            `http://localhost:3000?mail=${currentUserDeatils.mail.replace(
+              "gmail",
+              "mailsac"
+            )}`
+          );
         });
         documentX.getElementById("getListBtn").style =
           "opacity: 1; cursor: pointer;";
