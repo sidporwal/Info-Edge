@@ -11,7 +11,6 @@ chrome.action.onClicked.addListener(() => {
 });
 
 let currentUserInfo;
-
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   // First, validate the message's structure.
   if (msg.from === "content" && msg.subject === "userInfo") {
@@ -26,7 +25,10 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       body: JSON.stringify(currentUserInfo),
     })
       .then((res) => res.json())
-      .then((json) => console.log(json))
+      .then((json) => {
+        console.log(json);
+        currentUserInfo = json.data;
+      })
       .catch((error) => {
         console.error(error);
       });

@@ -40,6 +40,9 @@ class TrackTemplate extends Component {
 
   handleTabClick = (value = "REFERRED") => {
     this.setState({ selectedTab: value });
+    fetchReferralStatus().then((res) => {
+      this.setState({ trackDetails: res.data });
+    });
   };
 
   render = () => {

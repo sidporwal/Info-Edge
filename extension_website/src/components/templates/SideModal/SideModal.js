@@ -27,7 +27,8 @@ const SideModal = ({
     get(trackDetails, "ACCEPTED.length") * 100 +
     get(trackDetails, "INTERVIEWED.length") * 1000 +
     get(trackDetails, "JOINED.length") * 10000 +
-    get(trackDetails, "REFERRED.length") * 10;
+    get(trackDetails, "REFERRED.length") * 10 +
+    100;
 
   return (
     isVisible && (
@@ -80,7 +81,7 @@ const SideModal = ({
             <div className="amountDiv">
               <div className="amountWrapper marginBottom_20">
                 <p className="amount trackAmt colorBlack">
-                  Rs {Math.abs(rewardsBalance - rewardsRedeemed)}
+                  Rs {Math.abs(rewardsRedeemed - rewardsBalance)}
                 </p>
                 <p className="bold"> {`${"->"}`} </p>
                 <p className="amountTitle">already redeemed value</p>
