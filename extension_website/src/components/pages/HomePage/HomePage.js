@@ -57,6 +57,9 @@ const HomePage = (props) => {
           Be a scout and get your software engineer friends hired by top
           companies
         </p>
+        <p class="subhead subTagLine">
+          Work everyday (Be a scout, vouch candidates and earn rewards)
+        </p>
       </div>
       <div className="section2" id="workFlow">
         <h4 class="sub-small-title">5 easy steps to make almost free money</h4>
@@ -67,45 +70,65 @@ const HomePage = (props) => {
           </strong>
         </h3>
         <div className="homepageImgWrap">
-          <img
-            src={Extension}
-            height="260"
-            width="400"
-            alt="Extension"
-            className="marginImg"
-          />
+          <div className="stepsWrap">
+            <img
+              src={Extension}
+              height="260"
+              width="400"
+              alt="Extension"
+              className="marginImg"
+            />
+            <div class="stepsCount">STEP 1</div>
+            <div class="stepsCaption">Install Chrome Extension</div>
+          </div>
           <ArrowForwardIcon className="rightArrow" />
-          <img
-            src={MandateSelect}
-            height="260"
-            width="400"
-            alt="MandateSelect"
-            className="marginImg"
-          />
+          <div className="stepsWrap">
+            <img
+              src={MandateSelect}
+              height="260"
+              width="400"
+              alt="MandateSelect"
+              className="marginImg"
+            />
+            <div class="stepsCount">STEP 2</div>
+            <div class="stepsCaption">Select Job Mandate</div>
+          </div>
           <ArrowForwardIcon className="rightArrow" />
-          <img
-            src={CandidateSelect}
-            height="260"
-            width="400"
-            alt="CandidateSelect"
-            className="marginImg"
-          />
+          <div className="stepsWrap">
+            <img
+              src={CandidateSelect}
+              height="260"
+              width="400"
+              alt="CandidateSelect"
+              className="marginImg"
+            />
+            <div class="stepsCount">STEP 3</div>
+            <div class="stepsCaption">Vouch Connections</div>
+          </div>
           <ArrowDownwardIcon className="downArrow" />
-          <img
-            src={Track}
-            height="260"
-            width="400"
-            alt="Track"
-            className="marginImg"
-          />
+          <div className="stepsWrap">
+            <img
+              src={Track}
+              height="260"
+              width="400"
+              alt="Track"
+              className="marginImg"
+            />
+            <div class="stepsCount">STEP 4</div>
+            <div class="stepsCaption">Track Vouching</div>
+          </div>
           <ArrowBackIcon className="leftArrow" />
-          <img
-            src={ManageWallet}
-            height="260"
-            width="400"
-            alt="ManageWallet"
-            className="marginImg"
-          />
+          <div className="stepsWrap">
+            <img
+              src={ManageWallet}
+              height="260"
+              width="400"
+              alt="ManageWallet"
+              className="marginImg"
+            />
+            <div class="stepsCount">STEP 5</div>
+            <div class="stepsCaption">Manage Scout Wallet</div>
+          </div>
         </div>
       </div>
     </div>
