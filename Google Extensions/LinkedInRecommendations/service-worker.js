@@ -10,39 +10,36 @@ chrome.action.onClicked.addListener(() => {
   });
 });
 
-let currentUserInfo;
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   // First, validate the message's structure.
   if (msg.from === "content" && msg.subject === "userInfo") {
-    currentUserInfo = msg.data;
     console.log(msg.data);
     fetch("http://10.120.9.102:5556/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        token: currentUserInfo.mail,
+        token: msg.data.mail,
       },
-      body: JSON.stringify(currentUserInfo),
+      body: JSON.stringify(msg.data),
     })
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
-        currentUserInfo = json.data;
       })
       .catch((error) => {
         console.error(error);
       });
   }
   if (msg.from === "content" && msg.subject === "connectionsInfo") {
-    console.log(currentUserInfo.mail);
     console.log(msg.data);
+    const { connectionsData, currentUserDeatils } = msg.data;
     fetch("http://10.120.9.102:5556/linkedIn/connections/save/profile", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Token: currentUserInfo.mail,
+        Token: currentUserDeatils.mail.replace("gmail", "mailsac"),
       },
-      body: JSON.stringify(msg.data),
+      body: JSON.stringify(connectionsData),
     })
       .then((res) => res.json())
       .then((json) => console.log(json))
@@ -51,17 +48,17 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       });
   }
   if (msg.from === "content" && msg.subject === "connectionsMailInfo") {
-    console.log(currentUserInfo.mail);
     console.log(msg.data);
+    const { connectionsMail, currentUserDeatils } = msg.data;
     fetch(
       "http://10.120.9.102:5556/linkedIn/connections/save/profile/contacts",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Token: currentUserInfo.mail,
+          Token: currentUserDeatils.mail.replace("gmail", "mailsac"),
         },
-        body: JSON.stringify(msg.data),
+        body: JSON.stringify(connectionsMail),
       }
     )
       .then((res) => res.json())

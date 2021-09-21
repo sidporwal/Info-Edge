@@ -192,7 +192,7 @@ const fetchConnectionMails = async (data, i) => {
       sendDataUsingAPIs({
         from: "content",
         subject: "connectionsMailInfo",
-        data: connectionsMail,
+        data: { connectionsMail, currentUserDeatils },
       });
       return;
     }
@@ -201,7 +201,7 @@ const fetchConnectionMails = async (data, i) => {
       sendDataUsingAPIs({
         from: "content",
         subject: "connectionsMailInfo",
-        data: connectionsMail,
+        data: { connectionsMail, currentUserDeatils },
       });
       connectionsMail = [];
     }
@@ -242,7 +242,11 @@ const sendConnectionData = (prev, curr, isApiCall = true) => {
   }
   console.log(data);
   if (isApiCall) {
-    sendDataUsingAPIs({ from: "content", subject: "connectionsInfo", data });
+    sendDataUsingAPIs({
+      from: "content",
+      subject: "connectionsInfo",
+      data: { connectionsData: data, currentUserDeatils },
+    });
   }
   return data;
 };
