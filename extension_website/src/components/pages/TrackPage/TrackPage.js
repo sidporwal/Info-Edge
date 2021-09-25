@@ -4,6 +4,7 @@ import Navigation from "../../molecules/Navigation/Navigation";
 import TrackTemplate from "../../templates/TrackTemplate";
 import Button from "../../atoms/Button";
 import SideModal from "../../templates/SideModal";
+import Avatar from "../../atoms/Avatar";
 import get from "../../../utils/get";
 import { fetchReferralStatus } from "./TrackPageUtils";
 
@@ -18,6 +19,8 @@ class TrackPage extends Component {
       isVisible: false,
       rewardsBalance: 0,
       trackDetails: [],
+      isProfileNavOpen: false,
+      profile: null,
     };
   }
 
@@ -38,7 +41,10 @@ class TrackPage extends Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        this.setState({ rewardsBalance: get(data, "data.rewardsBalance") });
+        this.setState({
+          rewardsBalance: get(data, "data.rewardsBalance"),
+          profile: get(data, "data"),
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -71,10 +77,34 @@ class TrackPage extends Component {
       });
   };
 
+  handleProfileClick = () => {
+    this.setState({ isProfileNavOpen: !this.state.isProfileNavOpen });
+  };
+
   render = () => {
-    const { isVisible, rewardsBalance, trackDetails } = this.state;
+    const {
+      isVisible,
+      rewardsBalance,
+      trackDetails,
+      isProfileNavOpen,
+      profile,
+    } = this.state;
     return (
       <div className="TrackPage">
+        <Avatar
+          handleClick={this.handleProfileClick}
+          className="track__avatar"
+        />
+        {isProfileNavOpen && (
+          <SideModal
+            heading={`SCOUT PROFILE`}
+            wrapperClass="profileModal"
+            showCross
+            handleCrossClick={this.handleProfileClick}
+            isProfile
+            profile={profile}
+          />
+        )}
         <SideModal
           handleSubmitClick={this.handleSubmitClick}
           heading={`Wallet Summary`}

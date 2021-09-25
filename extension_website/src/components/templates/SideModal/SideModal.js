@@ -7,6 +7,7 @@ import get from "../../../utils/get";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ClearIcon from "@mui/icons-material/Clear";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
+import ProfileCard from "../../organisms/PorfileCard";
 
 const SideModal = ({
   heading,
@@ -22,6 +23,8 @@ const SideModal = ({
   rewardsBalance,
   trackDetails,
   handleRedeemClick,
+  isProfile,
+  profile,
 }) => {
   const rewardsRedeemed =
     get(trackDetails, "ACCEPTED.length") * 100 +
@@ -37,6 +40,7 @@ const SideModal = ({
         {showCross && (
           <ClearIcon className="crossIcon" onClick={handleCrossClick} />
         )}
+        {isProfile && <ProfileCard profile={profile} />}
         {isTrackPage && (
           <>
             <div className="amountDiv">
@@ -165,11 +169,13 @@ SideModal.propTypes = {
   isReviewPage: PropTypes.bool,
   isTrackPage: PropTypes.bool,
   isVisible: PropTypes.bool,
+  isProfile: PropTypes.bool,
   heading: PropTypes.string,
   rewardsBalance: PropTypes.number,
   wrapperClass: PropTypes.string,
   submit: PropTypes.string,
   trackDetails: PropTypes.object,
+  profile: PropTypes.object,
   vouchList: PropTypes.array,
   handleSubmitClick: PropTypes.func,
   handleRedeemClick: PropTypes.func,
@@ -179,12 +185,14 @@ SideModal.defaultProps = {
   isReviewPage: false,
   isTrackPage: false,
   isVisible: true,
+  isProfile: false,
   heading: "",
   rewardsBalance: 0,
   wrapperClass: "",
   submitBtnText: "",
   vouchList: [],
   trackDetails: {},
+  profile: {},
   handleSubmitClick: () => {},
   handleRedeemClick: () => {},
 };

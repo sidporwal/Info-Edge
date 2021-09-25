@@ -156,3 +156,40 @@ div > .selectionNavBtn:hover {
   border: 2px solid #fff;
   color: #fff;
 }
+
+div > .profileModal {
+  z-index: 3;
+  background: linear-gradient(to right bottom, black, rgb(88, 173, 243));
+}
+
+.profileModal > .heading {
+  color: #fff;
+  font-family: "Manrope", sans-serif, cursive;
+  font-size: xx-large;
+  word-spacing: 2px;
+  text-decoration: none;
+}
+
+.profileModal > .css-i4bv87-MuiSvgIcon-root {
+  fill: #fff;
+  z-index: 4;
+}
+
+.loggedUser {
+  position: absolute;
+  right: 33%;
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 21px;
+  color: #45a9cc;
+}
+
+.profileCard {
+  background-color: #fff;
+}
+
+.screenCenter {
+  position: fixed; /* or absolute */
+  top: 65%;
+  left: 35%;
+}

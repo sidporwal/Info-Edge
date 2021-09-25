@@ -1,0 +1,98 @@
+.main {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  height: 99vh;
+  width: 27vw;
+  border-radius: 12px 0 0 12px;
+  box-shadow: 0 10px 20px black;
+  background-size: cover;
+  font-family: "Abel", sans-serif;
+  background-image: url("http://i.xp.io/19ilEQjT.jpg");
+}
+
+.gradient {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  border-radius: 12px 0 0 12px;
+  background: linear-gradient(
+    to top,
+    rgba(28, 171, 238, 0.7),
+    rgba(253, 252, 252, 0.21)
+  );
+  color: white;
+}
+
+.content {
+  bottom: 14%;
+  position: absolute;
+  margin-bottom: 20px;
+  padding: 40px;
+}
+
+h2 {
+  font-size: xx-large;
+  letter-spacing: 1px;
+}
+
+.details {
+  font-style: italic;
+  color: rgb(185, 206, 224);
+}
+
+/* .icons {
+  display: flex;
+  flex-direction: column;
+  top: 37%;
+  position: absolute;
+  right: 15%;
+}
+
+.icons i {
+  font-size: 25px;
+  margin-bottom: 20px;
+  color: rgb(202, 215, 226);
+  transition: 0.3s;
+}
+
+.icons i:hover {
+  color: white;
+} */
+
+@media screen and(min-width:200px) {
+  .container {
+    height: 350px;
+    width: 200px;
+  }
+  h2 {
+    font-size: x-large;
+  }
+  /* .icons i {
+    font-size: large;
+    margin-bottom: 10px;
+  } */
+}
+
+.profileImg {
+  position: absolute;
+  top: 20%;
+  margin: 0 15% 0 20%;
+  width: 60%;
+  height: 360px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px black;
+}
+
+.reputation {
+  display: flex;
+  align-items: center;
+}
+
+.reputation > .css-i4bv87-MuiSvgIcon-root {
+  fill: yellow;
+}
