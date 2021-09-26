@@ -76,7 +76,7 @@ class TrackTemplate extends Component {
                 <tr className="trackRow ">
                   <td className="paddingLeft_8 width_50">{candidate.name}</td>
                   <td className="centreData width_50">
-                    {candidate.companyName}
+                    {`${candidate.jobTitle}, ${candidate.companyName}`}
                   </td>
                 </tr>
               ))}
