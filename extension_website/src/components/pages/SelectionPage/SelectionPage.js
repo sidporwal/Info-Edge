@@ -180,14 +180,17 @@ class SelectionPage extends Component {
           handleChangeJD={this.handleChangeJD}
         />
         <div className="cardsWrapper">
-          {candidateList.map((candidate, index) => (
-            <CandidateCard
-              candidateObj={candidate}
-              handleVouch={this.handleVouch}
-              handleRemoveVouch={this.handleRemoveVouch}
-              key={`Candidate_Card_${index + 1}`}
-            />
-          ))}
+          {candidateList.map(
+            (candidate, index) =>
+              candidate.name !== "Lalith Naren" && (
+                <CandidateCard
+                  candidateObj={candidate}
+                  handleVouch={this.handleVouch}
+                  handleRemoveVouch={this.handleRemoveVouch}
+                  key={`Candidate_Card_${index + 1}`}
+                />
+              )
+          )}
         </div>
       </div>
     );

@@ -27,10 +27,10 @@ const SideModal = ({
   profile,
 }) => {
   const rewardsRedeemed =
-    get(trackDetails, "ACCEPTED.length") * 100 +
-    get(trackDetails, "INTERVIEWED.length") * 1000 +
+    get(trackDetails, "ACCEPTED.length") * 500 +
+    get(trackDetails, "INTERVIEWED.length") * 1500 +
     get(trackDetails, "JOINED.length") * 10000 +
-    get(trackDetails, "REFERRED.length") * 10 +
+    get(trackDetails, "REFERRED.length") * 50 +
     100;
 
   return (
@@ -51,7 +51,7 @@ const SideModal = ({
               </div>
               <p className="plus">+</p>
               <div className="amountWrapper">
-                <p className="amount trackAmt">Rs 10</p>
+                <p className="amount trackAmt">Rs 50</p>
                 <p className="bold">{`x  ${
                   get(trackDetails, "REFERRED.length") || 0
                 }`}</p>
@@ -59,7 +59,7 @@ const SideModal = ({
               </div>
               <p className="plus">+</p>
               <div className="amountWrapper">
-                <p className="amount trackAmt">Rs 100</p>
+                <p className="amount trackAmt">Rs 500</p>
                 <p className="bold">{`x  ${
                   get(trackDetails, "ACCEPTED.length") || 0
                 }`}</p>
@@ -67,7 +67,7 @@ const SideModal = ({
               </div>
               <p className="plus">+</p>
               <div className="amountWrapper">
-                <p className="amount trackAmt">Rs 1000</p>
+                <p className="amount trackAmt">Rs 1500</p>
                 <p className="bold">{`x  ${
                   get(trackDetails, "INTERVIEWED.length") || 0
                 }`}</p>
@@ -112,7 +112,7 @@ const SideModal = ({
               </div>
               <p className="plus">+</p>
               <div className="amountWrapper">
-                <p className="amount">Rs 10</p>
+                <p className="amount">Rs 50</p>
                 <p className="bold">+</p>
                 <p className="amountTitle">for every vouched candidate</p>
               </div>
@@ -127,7 +127,7 @@ const SideModal = ({
                 <ArrowDownwardIcon />
               </p>
               <div className="amountWrapper">
-                <p className="amount">Rs {get(vouchList, "length") * 10}</p>
+                <p className="amount">Rs {get(vouchList, "length") * 50}</p>
                 <p className="bold">+</p>
                 <p className="amountTitle">amount for current vouching</p>
               </div>

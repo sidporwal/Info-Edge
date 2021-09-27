@@ -11,7 +11,7 @@ const MiniCard = ({ cardObj }) => {
     <div className="MiniCard">
       <img src={_profileImgUrl} height="48" width="48" alt={cardObj.name} />
       <p className="MiniCardName">{cardObj.name}</p>
-      <p className="coin">+ 10</p>
+      <p className="coin">+ 50</p>
     </div>
   );
 };
