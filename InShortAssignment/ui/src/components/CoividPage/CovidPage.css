@@ -1,0 +1,80 @@
+.cnt{
+  padding: 32px 24px;
+}
+
+.cnt p{
+  margin: 0;
+}
+
+.tableCnt {
+    border: 1px solid #7c8ba2;
+    overflow: auto;
+  }
+
+.head{
+  display: flex;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+  width: 248px;
+  text-align: center;
+  border-radius: 10px;
+  margin-right: 32px;
+  margin-top: 24px;
+}
+
+.titleText{
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.content{
+  display: flex;
+  justify-content: center;
+}
+
+.totalCases{
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.newCases{
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ff0000;
+  margin-left: 12px;
+}
+
+.positive{
+  background-color: #b4dbfc;
+}
+
+.active{
+  background-color: #b4eb8c;
+}
+
+.cured{
+  background-color: #eb9190;
+}
+
+.death{
+  background-color: #61bebf;
+}
+
+.cured .newCases{
+  color: #5a9b34;
+}
+
+.loading{
+  text-align: center;
+  font-size: 32px;
+  color: darkcyan;
+}

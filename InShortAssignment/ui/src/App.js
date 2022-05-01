@@ -1,14 +1,10 @@
-import { useEffect } from "react";
 import "./App.css";
-import { fetchCovidData } from "./utils";
+import CovidPage from "./components/CoividPage/CovidPage";
 
 function App() {
-  useEffect(() => {
-    fetchCovidData();
-  }, []);
   return (
     <div className="App">
-      <p>Siddhartha</p>
+      <CovidPage />
     </div>
   );
 }
