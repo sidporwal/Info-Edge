@@ -24,13 +24,12 @@ const CovidPage = () => {
     intervalId = setInterval(() => {
       fetchCovidData().then((data) => {
         if (data) {
-          console.log(data);
           const { rowData, totalData } = parseData(data);
           setNewRows(rowData);
           setTotalData(totalData);
         }
       });
-    }, 300000);
+    }, 30000);
   };
 
   useEffect(() => {
@@ -38,7 +37,6 @@ const CovidPage = () => {
     fetchCovidData()
       .then((data) => {
         if (data) {
-          console.log(data);
           const { rowData, totalData } = parseData(data);
           setNewRows(rowData);
           setTotalData(totalData);
